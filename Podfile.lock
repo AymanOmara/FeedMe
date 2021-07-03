@@ -1,0 +1,38 @@
+PODS:
+  - Alamofire (5.4.3)
+  - ReachabilitySwift (5.0.0)
+  - RxCocoa (6.1.0):
+    - RxRelay (= 6.1.0)
+    - RxSwift (= 6.1.0)
+  - RxRelay (6.1.0):
+    - RxSwift (= 6.1.0)
+  - RxSwift (6.1.0)
+  - TKFormTextField (0.3.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.2)
+  - ReachabilitySwift
+  - RxCocoa
+  - RxSwift
+  - TKFormTextField
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - ReachabilitySwift
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - TKFormTextField
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
+  RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
+  RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
+  TKFormTextField: def6294d3d3bd944d864ee48d5cc6e36863d6ade
+
+PODFILE CHECKSUM: 604852f695b9886a27cbb9aefae4b77189f56880
+
+COCOAPODS: 1.10.1

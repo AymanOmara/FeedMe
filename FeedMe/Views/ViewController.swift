@@ -12,6 +12,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let network:CategoryContract = Networking.shared
+        network.getAllCategory(complition: {(data,error,statusCode)
+            in
+           
+            print(data)
+            print(statusCode)
+            
+        })
     }
 
 

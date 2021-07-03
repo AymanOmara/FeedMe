@@ -1,0 +1,6 @@
+framework module Pods_FeedMe_FeedMeUITests {
+  umbrella header "Pods-FeedMe-FeedMeUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
