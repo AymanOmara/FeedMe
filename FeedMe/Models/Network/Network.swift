@@ -14,30 +14,38 @@ class Networking{
     
     private init() {
     }
-    
+//    func get(completion:@escaping (Category?,Int?,Error?)->Void){
+//        AF.request(Constants.baseURL+Constants.categoryURL).validate()
+//            .responseDecodable(of: Category.self) { (response) in
+//                switch response.result {
+//
+//                case .success( _):
+//                    completion(response.value,response.response?.statusCode,nil)
+//
+//                case .failure(let error):
+//                   // print(error.localizedDescription)
+//                    completion(nil,response.response?.statusCode,error)
+//                }
+//            }
+//    }
     
 }
 
 extension Networking:CategoryContract {
-    func getAllCategory(complition:@escaping  ((Category?,String?,Int?)->Void)) -> Void {
-        let url = URL(string: Constants.baseURL+Constants.categoryURL)
-        let request = URLRequest(url: url!)
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            if let d = data{
-                guard let decodedResponse = try? JSONDecoder().decode(Category.self, from: d)else{return}
+    func getAllCategories(completion:@escaping (Category?,Int?,Error?)->Void)->Void{
+        AF.request(Constants.baseURL+Constants.categoryURL).validate()
+            .responseDecodable(of: Category.self) { (response) in
+                switch response.result {
                 
-                var r = response  as? HTTPURLResponse
-                complition(decodedResponse,"",r!.statusCode)
+                case .success( _):
+                    completion(response.value,response.response?.statusCode,nil)
+                    
+                case .failure(let error):
+                    completion(nil,response.response?.statusCode,error)
+                }
             }
-            if let error = error{
-                var r = response  as? HTTPURLResponse
-                complition(nil,error.localizedDescription,r!.statusCode)
-            }
-            
-        }
-        task.resume()
         
     }
     
 }
+

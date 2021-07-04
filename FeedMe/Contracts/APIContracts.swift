@@ -7,5 +7,5 @@
 
 import Foundation
 protocol CategoryContract {
-    func getAllCategory(complition:@escaping  ((Category?,String?,Int?)->Void)) -> Void 
+    func getAllCategories(completion:@escaping (Category?,Int?,Error?)->Void)->Void
 }

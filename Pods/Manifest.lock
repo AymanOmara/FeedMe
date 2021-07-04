@@ -7,6 +7,9 @@ PODS:
   - RxRelay (6.1.0):
     - RxSwift (= 6.1.0)
   - RxSwift (6.1.0)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
   - TKFormTextField (0.3.1)
 
 DEPENDENCIES:
@@ -14,6 +17,7 @@ DEPENDENCIES:
   - ReachabilitySwift
   - RxCocoa
   - RxSwift
+  - SDWebImage (~> 5.0)
   - TKFormTextField
 
 SPEC REPOS:
@@ -23,6 +27,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SDWebImage
     - TKFormTextField
 
 SPEC CHECKSUMS:
@@ -31,8 +36,9 @@ SPEC CHECKSUMS:
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   TKFormTextField: def6294d3d3bd944d864ee48d5cc6e36863d6ade
 
-PODFILE CHECKSUM: 604852f695b9886a27cbb9aefae4b77189f56880
+PODFILE CHECKSUM: 2791369d860f9104bbbe3f1436e8e5b9a71b1d76
 
 COCOAPODS: 1.10.1
