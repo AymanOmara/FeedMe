@@ -48,4 +48,17 @@ extension Networking:CategoryContract {
     }
     
 }
+extension Networking{
+    func getAllMeals(categoryName:String,complition:@escaping (Meals?,Int?,Error?)->Void)->Void{
+        AF.request(Constants.baseURL+Constants.filterCategory+categoryName).validate().responseDecodable(of: Meals.self){ (response) in
+            switch (response.result){
+            case .success(let meals):
+                complition(meals,response.response?.statusCode,nil)
+            case .failure(let error):
+                complition(nil,response.response?.statusCode,error)
+            }
+            
+        }
+    }
+}
 

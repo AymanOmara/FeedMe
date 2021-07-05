@@ -28,7 +28,17 @@ class ViewController: UIViewController {
             cell.callName.text = data.strCategory
             
         }.disposed(by: disposeBag)
-        
+        //MARK:- Send the id to the next viewContoller
+        collectionView
+            .rx
+            .modelSelected(Category.self)
+            .subscribe(onNext: { (model) in
+                print(model.categories[0].idCategory)
+            }).disposed(by: disposeBag)
+//        collectionView.rx.itemSelected.bind(onNext: {(index) in
+//            print(index)
+//        })
+//
         categoryViewModel.showLoadingObservable.subscribe(onNext:{(bol)
             in
             switch(bol){
