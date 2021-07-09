@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import SDWebImage
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
     
 
     private let categoryViewModel = CategoryViewModel()
@@ -24,8 +24,12 @@ class ViewController: UIViewController {
         categoryViewModel.categoryObservable.bind(to: collectionView.rx.items(cellIdentifier: "CategoryCollectionViewCell")){row,data,cell in
             print(data)
             let cell = cell as! CategoryCollectionViewCell
+//            cell.layer.borderColor =
+            cell.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            cell.layer.borderWidth = 1
             cell.cellImage.sd_setImage(with: URL(string: data.strCategoryThumb), placeholderImage: UIImage(named: "placeholder.png"))
             cell.callName.text = data.strCategory
+            
             
         }.disposed(by: disposeBag)
         //MARK:- Send the id to the next viewContoller
@@ -38,7 +42,10 @@ class ViewController: UIViewController {
 //        collectionView.rx.itemSelected.bind(onNext: {(index) in
 //            print(index)
 //        })
+        
+        collectionView.rx.setDelegate(self).disposed(by: disposeBag)
 //
+        
         categoryViewModel.showLoadingObservable.subscribe(onNext:{(bol)
             in
             switch(bol){
@@ -53,7 +60,12 @@ class ViewController: UIViewController {
     }
     
 }
-extension ViewController:ViewCotrollerContracts{
+
+
+
+
+
+extension ViewController:ViewCotrollerContracts,UICollectionViewDelegateFlowLayout{
     
     
     func showLoading() -> Bool {
@@ -69,5 +81,19 @@ extension ViewController:ViewCotrollerContracts{
         isLoadingAppears = false
         return isLoadingAppears
     }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+
+        let width = (collectionView.frame.size.width - 10) / 2
+        
+        let cellSize = CGSize(width: width, height: width)
+//        let cellSize = CGSize(width: (view.window?.layer.frame.width)!/2, height: ((view.window?.layer.frame.width)!/2))
+        return cellSize
+    }
+
+
     
 }
