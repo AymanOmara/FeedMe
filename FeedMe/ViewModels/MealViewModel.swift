@@ -18,25 +18,18 @@ class MealViewModel {
     var categoryName:String = ""
     
     func featchData() -> Void{
-        print("====================================")
-        //        print(categoryName)
-        print("====================================")
+
         network.getAllMeals(categoryName: categoryName) { meals, statusCode, error in
             guard let meals = meals else{
                 self.errorSubject.onNext((error!.localizedDescription,statusCode!,true))
                 return
             }
             self.mealsSubject.onNext(meals.meals)
-            Swift.print(meals)
         }
     }
     init() {
         mealsObservable = mealsSubject.asObservable()
         errorObservable = errorSubject.asObservable()
     }
-    //    init(str:String) {
-    //        categoryName = str
-    //        mealsObservable = nil
-    //        errorObservable = nil
-    //    }
+
 }

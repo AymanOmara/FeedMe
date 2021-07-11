@@ -17,6 +17,8 @@
 		ED18D5C526927CA6009C0724 /* MealsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED18D5C426927CA6009C0724 /* MealsTableViewCell.swift */; };
 		ED18D5C726927DB5009C0724 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED18D5C626927DB5009C0724 /* MealViewController.swift */; };
 		ED18D5C926927F60009C0724 /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED18D5C826927F60009C0724 /* MealViewModel.swift */; };
+		ED1FF762269B193E001A8B2A /* MealDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1FF761269B193E001A8B2A /* MealDetailsViewModel.swift */; };
+		ED1FF765269B1A1C001A8B2A /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1FF764269B1A1C001A8B2A /* DetailsViewController.swift */; };
 		ED2429842690006F00534AF5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2429832690006F00534AF5 /* Category.swift */; };
 		ED242986269000A900534AF5 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED242985269000A900534AF5 /* Network.swift */; };
 		ED242989269000F400534AF5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED242988269000F400534AF5 /* Constants.swift */; };
@@ -66,6 +68,8 @@
 		ED18D5C426927CA6009C0724 /* MealsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTableViewCell.swift; sourceTree = "<group>"; };
 		ED18D5C626927DB5009C0724 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
 		ED18D5C826927F60009C0724 /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
+		ED1FF761269B193E001A8B2A /* MealDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsViewModel.swift; sourceTree = "<group>"; };
+		ED1FF764269B1A1C001A8B2A /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		ED2429832690006F00534AF5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		ED242985269000A900534AF5 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		ED242988269000F400534AF5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -154,6 +158,14 @@
 				ED18D5C626927DB5009C0724 /* MealViewController.swift */,
 			);
 			path = MealScreen;
+			sourceTree = "<group>";
+		};
+		ED1FF763269B1A00001A8B2A /* DetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				ED1FF764269B1A1C001A8B2A /* DetailsViewController.swift */,
+			);
+			path = DetailsScreen;
 			sourceTree = "<group>";
 		};
 		ED242987269000DE00534AF5 /* Support */ = {
@@ -255,6 +267,7 @@
 		ED845391268FEE7C00A7D289 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ED1FF763269B1A00001A8B2A /* DetailsScreen */,
 				ED18D5C126927C31009C0724 /* MealScreen */,
 				ED18D5C026927C1B009C0724 /* CategoryScreen */,
 				ED84535C268FEDF100A7D289 /* SceneDelegate.swift */,
@@ -271,6 +284,7 @@
 			children = (
 				ED0ADB73269127C5004B6149 /* CategoryViewModel.swift */,
 				ED18D5C826927F60009C0724 /* MealViewModel.swift */,
+				ED1FF761269B193E001A8B2A /* MealDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -528,8 +542,10 @@
 				ED18D5C726927DB5009C0724 /* MealViewController.swift in Sources */,
 				ED84535F268FEDF100A7D289 /* ViewController.swift in Sources */,
 				ED2429842690006F00534AF5 /* Category.swift in Sources */,
+				ED1FF762269B193E001A8B2A /* MealDetailsViewModel.swift in Sources */,
 				ED242986269000A900534AF5 /* Network.swift in Sources */,
 				ED845365268FEDF100A7D289 /* FeedMe.xcdatamodeld in Sources */,
+				ED1FF765269B1A1C001A8B2A /* DetailsViewController.swift in Sources */,
 				ED84535B268FEDF100A7D289 /* AppDelegate.swift in Sources */,
 				ED0ADB74269127C5004B6149 /* CategoryViewModel.swift in Sources */,
 				ED18D5BD269256A4009C0724 /* CategoryCollectionViewCell.swift in Sources */,

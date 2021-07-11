@@ -14,20 +14,20 @@ class Networking{
     
     private init() {
     }
-//    func get(completion:@escaping (Category?,Int?,Error?)->Void){
-//        AF.request(Constants.baseURL+Constants.categoryURL).validate()
-//            .responseDecodable(of: Category.self) { (response) in
-//                switch response.result {
-//
-//                case .success( _):
-//                    completion(response.value,response.response?.statusCode,nil)
-//
-//                case .failure(let error):
-//                   // print(error.localizedDescription)
-//                    completion(nil,response.response?.statusCode,error)
-//                }
-//            }
-//    }
+    //    func get(completion:@escaping (Category?,Int?,Error?)->Void){
+    //        AF.request(Constants.baseURL+Constants.categoryURL).validate()
+    //            .responseDecodable(of: Category.self) { (response) in
+    //                switch response.result {
+    //
+    //                case .success( _):
+    //                    completion(response.value,response.response?.statusCode,nil)
+    //
+    //                case .failure(let error):
+    //                   // print(error.localizedDescription)
+    //                    completion(nil,response.response?.statusCode,error)
+    //                }
+    //            }
+    //    }
     
 }
 
@@ -62,3 +62,18 @@ extension Networking{
     }
 }
 
+extension Networking{
+    func getMealDetails(mealID:String,complition:@escaping (MealDetails?,Int?,Error?)->Void) -> Void {
+        AF.request(Constants.baseURL+Constants.mealDetails+mealID).validate()
+            .responseDecodable(of: MealDetails.self) { (response) in
+                switch response.result {
+                
+                case .success( _):
+                    complition(response.value,response.response?.statusCode,nil)
+                    
+                case .failure(let error):
+                    complition(nil,response.response?.statusCode,error)
+                }
+        }
+    }
+}

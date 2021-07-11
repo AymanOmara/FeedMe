@@ -11,5 +11,5 @@ class Constants {
     static let baseURL = "https://www.themealdb.com/api/json/v1/1/"
     static let categoryURL = "categories.php"
     static let filterCategory = "filter.php?c="
-    
+    static let mealDetails = "lookup.php?i="
 }

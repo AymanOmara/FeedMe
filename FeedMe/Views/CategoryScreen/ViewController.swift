@@ -22,7 +22,7 @@ class ViewController: UIViewController{
     @IBOutlet weak private var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Categories"
+        title = "Categories"
         indicator.alpha = 1
         activityIndicator = UIActivityIndicatorView()
         //activityIndicator = UIActivityIndicatorView(frame: CGRect(x: CGFloat(Double((view.frame.minX + view.frame.maxX) / 2 )) , y: CGFloat(Double((view.frame.minY + view.frame.maxY) / 2 )), width: view.frame.size.width, height:  view.frame.size.width))
