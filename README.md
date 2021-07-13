@@ -6,4 +6,10 @@ With the ability of preform search of these meals , after clicking on list item
 Then another screen will be displayed that holds all meal details , like instructions and ingredients with the ability of adding this meal to the favorite and store it locally,
 # Used Tools 
 - AlamoFire
-- 
+- RxCocoa
+- RxSwift
+- Reachability
+
+# Code Speciation 
+- Architectural design pattern MVVM
+- used Single tone design patterns for network and local manager
