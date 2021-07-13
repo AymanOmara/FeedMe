@@ -12,7 +12,7 @@ Then another screen will be displayed that holds all meal details , like instruc
 - SD Web Image
 - Gesture Recognizer 
 
-# Code Speciation 
+# Code Specifications 
 - Architectural design pattern MVVM
 - used Single tone design patterns for network and local manager
 - used API:theMealDb.com
