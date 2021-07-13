@@ -18,4 +18,5 @@ Then another screen will be displayed that holds all meal details , like instruc
 - used API:theMealDb.com
 - Used Core Data to store the Favorite
 - Readable and maintainable Code 
-- following the SOLID OOP principals 
+- following the SOLID OOP principals
+- Unit Testing
