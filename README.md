@@ -9,8 +9,10 @@ Then another screen will be displayed that holds all meal details , like instruc
 - RxCocoa
 - RxSwift
 - Reachability
+- Gesture Recognizer 
 
 # Code Speciation 
 - Architectural design pattern MVVM
 - used Single tone design patterns for network and local manager
 - used API:theMealDb.com
+- Used Core Data to store the Favorite
