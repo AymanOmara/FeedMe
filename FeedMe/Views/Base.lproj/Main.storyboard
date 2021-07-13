@@ -70,6 +70,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="FIK-hI-afI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="10" id="GDT-1a-GbU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FIK-hI-afI" secondAttribute="bottom" constant="10" id="RqG-tm-xCA"/>
@@ -286,10 +287,10 @@
             </objects>
             <point key="canvasLocation" x="714.49275362318849" y="45.535714285714285"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorite View Controller-->
         <scene sceneID="SIl-l4-Gr3">
             <objects>
-                <viewController id="DXl-Au-6Mm" sceneMemberID="viewController">
+                <viewController id="DXl-Au-6Mm" customClass="FavoriteViewController" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b0m-Jh-VMW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

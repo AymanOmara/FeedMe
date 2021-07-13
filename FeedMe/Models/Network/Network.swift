@@ -7,9 +7,33 @@
 
 import Foundation
 import Alamofire
-
+import Reachability
 class Networking{
+    let reachability = try! Reachability()
+
     
+    func chechTheConnection() -> Void {
+            
+//        if reachability.whenReachable{
+//            print(true)
+//        }
+    }
+//    reachability.whenReachable = { reachability in
+//        if reachability.connection == .wifi {
+//            print("Reachable via WiFi")
+//        } else {
+//            print("Reachable via Cellular")
+//        }
+//    }
+//    reachability.whenUnreachable = { _ in
+//        print("Not reachable")
+//    }
+//
+//    do {
+//        try reachability.startNotifier()
+//    } catch {
+//        print("Unable to start notifier")
+//    }
     static let shared = Networking()
     
     private init() {

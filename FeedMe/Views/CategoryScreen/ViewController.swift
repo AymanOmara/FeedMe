@@ -12,6 +12,7 @@ import SDWebImage
 
 class ViewController: UIViewController{
     
+
     
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     private let categoryViewModel = CategoryViewModel()
@@ -23,6 +24,16 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Categories"
+        
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+//        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        leftSwipe.direction = .left
+//        rightSwipe.direction = .right
+        self.view.addGestureRecognizer(leftSwipe)
+//        //self.view.addGestureRecognizer(rightSwipe)
+//
+        
+        
         indicator.alpha = 1
         activityIndicator = UIActivityIndicatorView()
         //activityIndicator = UIActivityIndicatorView(frame: CGRect(x: CGFloat(Double((view.frame.minX + view.frame.maxX) / 2 )) , y: CGFloat(Double((view.frame.minY + view.frame.maxY) / 2 )), width: view.frame.size.width, height:  view.frame.size.width))
@@ -110,4 +121,17 @@ extension ViewController:ViewCotrollerContracts,UICollectionViewDelegateFlowLayo
     
     
     
+}
+// MARK:- GestureRecognizer
+extension ViewController{
+    @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
+        if sender.direction == .left {
+
+            self.tabBarController!.selectedIndex += 1
+        }
+//        if sender.direction == .right {
+//            sender.accessibilityRespondsToUserInteraction = true
+//            self.tabBarController!.selectedIndex -= 1
+//        }
+    }
 }

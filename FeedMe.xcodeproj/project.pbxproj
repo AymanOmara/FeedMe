@@ -32,6 +32,7 @@
 		ED84536A268FEDF200A7D289 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED845368268FEDF200A7D289 /* LaunchScreen.storyboard */; };
 		ED845375268FEDF200A7D289 /* FeedMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED845374268FEDF200A7D289 /* FeedMeTests.swift */; };
 		ED845380268FEDF200A7D289 /* FeedMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84537F268FEDF200A7D289 /* FeedMeUITests.swift */; };
+		ED85F43F269DC82C00A738EF /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED85F43E269DC82C00A738EF /* FavoriteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		ED84537B268FEDF200A7D289 /* FeedMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeedMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED84537F268FEDF200A7D289 /* FeedMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMeUITests.swift; sourceTree = "<group>"; };
 		ED845381268FEDF200A7D289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED85F43E269DC82C00A738EF /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +269,7 @@
 		ED845391268FEE7C00A7D289 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ED85F43D269DC7DF00A738EF /* FavoriteScreen */,
 				ED1FF763269B1A00001A8B2A /* DetailsScreen */,
 				ED18D5C126927C31009C0724 /* MealScreen */,
 				ED18D5C026927C1B009C0724 /* CategoryScreen */,
@@ -296,6 +299,14 @@
 				ED0ADB7526914067004B6149 /* ViewControllerContracts.swift */,
 			);
 			path = Contracts;
+			sourceTree = "<group>";
+		};
+		ED85F43D269DC7DF00A738EF /* FavoriteScreen */ = {
+			isa = PBXGroup;
+			children = (
+				ED85F43E269DC82C00A738EF /* FavoriteViewController.swift */,
+			);
+			path = FavoriteScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -540,6 +551,7 @@
 				ED24298B26902DD400534AF5 /* APIContracts.swift in Sources */,
 				ED242989269000F400534AF5 /* Constants.swift in Sources */,
 				ED18D5C726927DB5009C0724 /* MealViewController.swift in Sources */,
+				ED85F43F269DC82C00A738EF /* FavoriteViewController.swift in Sources */,
 				ED84535F268FEDF100A7D289 /* ViewController.swift in Sources */,
 				ED2429842690006F00534AF5 /* Category.swift in Sources */,
 				ED1FF762269B193E001A8B2A /* MealDetailsViewModel.swift in Sources */,
