@@ -16,3 +16,5 @@ Then another screen will be displayed that holds all meal details , like instruc
 - used Single tone design patterns for network and local manager
 - used API:theMealDb.com
 - Used Core Data to store the Favorite
+- Readable and maintainable Code 
+- following the SOLID OOP principals 
