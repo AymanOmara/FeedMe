@@ -19,6 +19,11 @@ class mealDetails: Codable {
     var strIngredient8,strIngredient9,strIngredient10,strIngredient11,strIngredient12,strIngredient13:String?
     var strIngredient14,strIngredient15,strIngredient16,strIngredient17,strIngredient18,strIngredient19:String?
     var strIngredient20,strIngredient1:String?
+    var strMeasure1,strMeasure2,strMeasure3,strMeasure4,strMeasure5,strMeasure6,strMeasure7:String?
+    var strMeasure8,strMeasure9,strMeasure10,strMeasure11,strMeasure12,strMeasure13:String?
+    var strMeasure14,strMeasure15,strMeasure16,strMeasure17,strMeasure18,strMeasure19:String?
+    
+    
 }
 class MealDetails:Codable{
     let meals:[mealDetails]

@@ -10,6 +10,7 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
+  - SkeletonView (1.15.0)
   - TKFormTextField (0.3.1)
 
 DEPENDENCIES:
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - RxCocoa
   - RxSwift
   - SDWebImage (~> 5.0)
+  - SkeletonView
   - TKFormTextField
 
 SPEC REPOS:
@@ -28,6 +30,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SDWebImage
+    - SkeletonView
     - TKFormTextField
 
 SPEC CHECKSUMS:
@@ -37,8 +40,9 @@ SPEC CHECKSUMS:
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SkeletonView: cac18a3ac4f893b09d99e65072d806ef08377aae
   TKFormTextField: def6294d3d3bd944d864ee48d5cc6e36863d6ade
 
-PODFILE CHECKSUM: 2791369d860f9104bbbe3f1436e8e5b9a71b1d76
+PODFILE CHECKSUM: 2c51bd8e273840c4aa5e55edb3345efabe1a74d8
 
 COCOAPODS: 1.10.1

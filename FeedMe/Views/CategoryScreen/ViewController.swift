@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SDWebImage
-
+import SkeletonView
 class ViewController: UIViewController{
     
 
@@ -42,14 +42,18 @@ class ViewController: UIViewController{
         activityIndicator.color = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
         categoryViewModel.categoryObservable.bind(to: collectionView.rx.items(cellIdentifier: "CategoryCollectionViewCell")){row,data,cell in
+            
             print(data)
             let cell = cell as! CategoryCollectionViewCell
+            self.animation(cell: cell)
+//            cell.showAnimatedSkeleton()
+//            cell.startSkeletonAnimation()
             cell.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             cell.layer.borderWidth = 1
             cell.cellImage.sd_setImage(with: URL(string: data.strCategoryThumb), placeholderImage: UIImage(named: "placeholder.png"))
             cell.callName.text = data.strCategory
             
-            
+//            cell.stopSkeletonAnimation()
         }.disposed(by: disposeBag)
         //MARK:- Send the id to the next viewContoller
 
@@ -64,14 +68,31 @@ class ViewController: UIViewController{
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         //
         
+//        categoryViewModel.showLoadingObservable.subscribe(onNext:{(bol)
+//            in
+//            switch(bol){
+//            case true:
+//                self.showLoading()
+//                print("start Loading")
+//            case false:
+//                self.hideLoading()
+//                print("stop Loading")
+//            }
+//        }).disposed(by: disposeBag)
+    }
+    func animation(cell:CategoryCollectionViewCell){
         categoryViewModel.showLoadingObservable.subscribe(onNext:{(bol)
             in
             switch(bol){
             case true:
-                self.showLoading()
+                cell.showGradientSkeleton()
+                cell.startSkeletonAnimation()
+               // self.showLoading()
                 print("start Loading")
             case false:
                 self.hideLoading()
+                cell.stopSkeletonAnimation()
+                cell.hideSkeleton()
                 print("stop Loading")
             }
         }).disposed(by: disposeBag)

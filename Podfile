@@ -12,6 +12,7 @@ target 'FeedMe' do
     pod 'Alamofire', '~> 5.2'
     pod "TKFormTextField"
     pod 'SDWebImage', '~> 5.0'
+    pod 'SkeletonView'
 
   target 'FeedMeTests' do
     inherit! :search_paths

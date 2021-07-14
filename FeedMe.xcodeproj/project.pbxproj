@@ -33,6 +33,7 @@
 		ED845375268FEDF200A7D289 /* FeedMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED845374268FEDF200A7D289 /* FeedMeTests.swift */; };
 		ED845380268FEDF200A7D289 /* FeedMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84537F268FEDF200A7D289 /* FeedMeUITests.swift */; };
 		ED85F43F269DC82C00A738EF /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED85F43E269DC82C00A738EF /* FavoriteViewController.swift */; };
+		ED85F441269DCF1C00A738EF /* DetailsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED85F440269DCF1C00A738EF /* DetailsCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		ED84537F268FEDF200A7D289 /* FeedMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMeUITests.swift; sourceTree = "<group>"; };
 		ED845381268FEDF200A7D289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED85F43E269DC82C00A738EF /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		ED85F440269DCF1C00A738EF /* DetailsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				ED1FF764269B1A1C001A8B2A /* DetailsViewController.swift */,
+				ED85F440269DCF1C00A738EF /* DetailsCollectionCell.swift */,
 			);
 			path = DetailsScreen;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				ED24298B26902DD400534AF5 /* APIContracts.swift in Sources */,
 				ED242989269000F400534AF5 /* Constants.swift in Sources */,
 				ED18D5C726927DB5009C0724 /* MealViewController.swift in Sources */,
+				ED85F441269DCF1C00A738EF /* DetailsCollectionCell.swift in Sources */,
 				ED85F43F269DC82C00A738EF /* FavoriteViewController.swift in Sources */,
 				ED84535F268FEDF100A7D289 /* ViewController.swift in Sources */,
 				ED2429842690006F00534AF5 /* Category.swift in Sources */,
