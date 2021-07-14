@@ -87,8 +87,24 @@ extension Networking{
 }
 
 extension Networking{
-    func getMealDetails(mealID:String,complition:@escaping (MealDetails?,Int?,Error?)->Void) -> Void {
-        AF.request(Constants.baseURL+Constants.mealDetails+mealID).validate()
+    func getMealDetails(url:String,mealID:String,complition:@escaping (MealDetails?,Int?,Error?)->Void) -> Void {
+        AF.request(url+mealID).validate()
+            .responseDecodable(of: MealDetails.self) { (response) in
+                switch response.result {
+                
+                case .success( _):
+                    complition(response.value,response.response?.statusCode,nil)
+                    
+                case .failure(let error):
+                    complition(nil,response.response?.statusCode,error)
+                }
+        }
+    }
+}
+
+extension Networking{
+    func getRandomMeal(complition:@escaping (MealDetails?,Int?,Error?)->Void) -> Void {
+        AF.request(Constants.baseURL+Constants.randomMeal).validate()
             .responseDecodable(of: MealDetails.self) { (response) in
                 switch response.result {
                 

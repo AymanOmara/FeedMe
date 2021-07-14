@@ -32,6 +32,9 @@
 		ED84536A268FEDF200A7D289 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED845368268FEDF200A7D289 /* LaunchScreen.storyboard */; };
 		ED845375268FEDF200A7D289 /* FeedMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED845374268FEDF200A7D289 /* FeedMeTests.swift */; };
 		ED845380268FEDF200A7D289 /* FeedMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84537F268FEDF200A7D289 /* FeedMeUITests.swift */; };
+		ED845872269F028200128F7C /* RandomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED845871269F028200128F7C /* RandomViewController.swift */; };
+		ED845878269F032D00128F7C /* RandomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED845877269F032D00128F7C /* RandomViewModel.swift */; };
+		ED84587A269F1C9A00128F7C /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED845879269F1C9A00128F7C /* NavigationController.swift */; };
 		ED85F43F269DC82C00A738EF /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED85F43E269DC82C00A738EF /* FavoriteViewController.swift */; };
 		ED85F441269DCF1C00A738EF /* DetailsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED85F440269DCF1C00A738EF /* DetailsCollectionCell.swift */; };
 /* End PBXBuildFile section */
@@ -91,6 +94,9 @@
 		ED84537B268FEDF200A7D289 /* FeedMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeedMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED84537F268FEDF200A7D289 /* FeedMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMeUITests.swift; sourceTree = "<group>"; };
 		ED845381268FEDF200A7D289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED845871269F028200128F7C /* RandomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewController.swift; sourceTree = "<group>"; };
+		ED845877269F032D00128F7C /* RandomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewModel.swift; sourceTree = "<group>"; };
+		ED845879269F1C9A00128F7C /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		ED85F43E269DC82C00A738EF /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		ED85F440269DCF1C00A738EF /* DetailsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -272,6 +278,7 @@
 		ED845391268FEE7C00A7D289 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ED845870269F023C00128F7C /* RandomScreen */,
 				ED85F43D269DC7DF00A738EF /* FavoriteScreen */,
 				ED1FF763269B1A00001A8B2A /* DetailsScreen */,
 				ED18D5C126927C31009C0724 /* MealScreen */,
@@ -281,6 +288,7 @@
 				ED845360268FEDF100A7D289 /* Main.storyboard */,
 				ED845368268FEDF200A7D289 /* LaunchScreen.storyboard */,
 				ED845366268FEDF200A7D289 /* Assets.xcassets */,
+				ED845879269F1C9A00128F7C /* NavigationController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -288,9 +296,10 @@
 		ED845392268FEE8400A7D289 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				ED0ADB73269127C5004B6149 /* CategoryViewModel.swift */,
-				ED18D5C826927F60009C0724 /* MealViewModel.swift */,
-				ED1FF761269B193E001A8B2A /* MealDetailsViewModel.swift */,
+				ED845876269F031600128F7C /* Random */,
+				ED845873269F02DF00128F7C /* Category */,
+				ED845874269F02F100128F7C /* Meal */,
+				ED845875269F02FD00128F7C /* Meal Details */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -302,6 +311,46 @@
 				ED0ADB7526914067004B6149 /* ViewControllerContracts.swift */,
 			);
 			path = Contracts;
+			sourceTree = "<group>";
+		};
+		ED845870269F023C00128F7C /* RandomScreen */ = {
+			isa = PBXGroup;
+			children = (
+				ED845871269F028200128F7C /* RandomViewController.swift */,
+			);
+			path = RandomScreen;
+			sourceTree = "<group>";
+		};
+		ED845873269F02DF00128F7C /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				ED0ADB73269127C5004B6149 /* CategoryViewModel.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		ED845874269F02F100128F7C /* Meal */ = {
+			isa = PBXGroup;
+			children = (
+				ED18D5C826927F60009C0724 /* MealViewModel.swift */,
+			);
+			path = Meal;
+			sourceTree = "<group>";
+		};
+		ED845875269F02FD00128F7C /* Meal Details */ = {
+			isa = PBXGroup;
+			children = (
+				ED1FF761269B193E001A8B2A /* MealDetailsViewModel.swift */,
+			);
+			path = "Meal Details";
+			sourceTree = "<group>";
+		};
+		ED845876269F031600128F7C /* Random */ = {
+			isa = PBXGroup;
+			children = (
+				ED845877269F032D00128F7C /* RandomViewModel.swift */,
+			);
+			path = Random;
 			sourceTree = "<group>";
 		};
 		ED85F43D269DC7DF00A738EF /* FavoriteScreen */ = {
@@ -551,14 +600,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED18D5BF2692793B009C0724 /* Meals.swift in Sources */,
+				ED845878269F032D00128F7C /* RandomViewModel.swift in Sources */,
 				ED24298B26902DD400534AF5 /* APIContracts.swift in Sources */,
 				ED242989269000F400534AF5 /* Constants.swift in Sources */,
 				ED18D5C726927DB5009C0724 /* MealViewController.swift in Sources */,
 				ED85F441269DCF1C00A738EF /* DetailsCollectionCell.swift in Sources */,
+				ED845872269F028200128F7C /* RandomViewController.swift in Sources */,
 				ED85F43F269DC82C00A738EF /* FavoriteViewController.swift in Sources */,
 				ED84535F268FEDF100A7D289 /* ViewController.swift in Sources */,
 				ED2429842690006F00534AF5 /* Category.swift in Sources */,
 				ED1FF762269B193E001A8B2A /* MealDetailsViewModel.swift in Sources */,
+				ED84587A269F1C9A00128F7C /* NavigationController.swift in Sources */,
 				ED242986269000A900534AF5 /* Network.swift in Sources */,
 				ED845365268FEDF100A7D289 /* FeedMe.xcdatamodeld in Sources */,
 				ED1FF765269B1A1C001A8B2A /* DetailsViewController.swift in Sources */,

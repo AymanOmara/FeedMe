@@ -12,4 +12,5 @@ class Constants {
     static let categoryURL = "categories.php"
     static let filterCategory = "filter.php?c="
     static let mealDetails = "lookup.php?i="
+    static let randomMeal = "random.php"
 }

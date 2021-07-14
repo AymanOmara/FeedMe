@@ -19,7 +19,7 @@ class MealDetailsViewModel{
     let networking = Networking.shared
     var mealID:String = ""
     func featchData() -> Void {
-        networking.getMealDetails(mealID: mealID) { data, statusCode, error in
+        networking.getMealDetails(url:Constants.baseURL+Constants.mealDetails,mealID: mealID) { data, statusCode, error in
             guard let data = data else{
                 self.errorSubject.onNext((error!.localizedDescription,statusCode!))
                 return
