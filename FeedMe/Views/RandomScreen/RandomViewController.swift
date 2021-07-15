@@ -15,31 +15,36 @@ class RandomViewController: UIViewController {
     
     let randomViewModel  = RandomViewModel()
 let disposeBag = DisposeBag()
-    var secondsRemaining = 5
+    var secondsRemaining = 6
     @IBOutlet weak var btn: UIButton!
     @IBOutlet weak var mealCategory: UILabel!
     @IBOutlet weak var mealName: UILabel!
     @IBOutlet weak var image: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         btn.layer.borderWidth = 2
         btn.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-       // btn.layer.cornerRadius = 40
         btn.layer.cornerRadius = btn.frame.size.width / 2
         btn.clipsToBounds = true
-//        btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: btn.bounds.width - btn.bounds.height)
-//        btn.imageView?.layer.cornerRadius = btn.bounds.height/2.0
         image.alpha = 1
         image.isSkeletonable = true
-        image.animationDuration = 60
-        image.showGradientSkeleton()
         
+        
+        /*
+         
+         image.showAnimatedGradientSkeleton(usingGradient: gradient) // Gradient
+         */
+        let gradient = SkeletonGradient(baseColor: UIColor.midnightBlue)
+        //SkeletonAppearance.default.tintColor = .green
+       // image.showAnimatedGradientSkeleton()
+        image.showAnimatedGradientSkeleton(usingGradient: gradient) // Gradient
         image.startAnimating()
         image.backgroundColor = .belizeHole
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
             self.randomViewModel.featchData()
             
         }
