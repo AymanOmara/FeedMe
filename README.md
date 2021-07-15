@@ -10,6 +10,7 @@ Then another screen will be displayed that holds all meal details , like instruc
 - RxSwift
 - Reachability
 - SD Web Image
+- SkeletonView
 - Gesture Recognizer 
 
 # Code Specifications 
