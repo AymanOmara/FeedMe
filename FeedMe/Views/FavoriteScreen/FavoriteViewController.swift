@@ -9,8 +9,12 @@ import UIKit
 
 class FavoriteViewController: UIViewController {
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isToolbarHidden = true
+    
+        //tableView.tableHeaderView = nil
         // let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
         //        leftSwipe.direction = .left
