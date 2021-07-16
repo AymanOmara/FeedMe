@@ -14,7 +14,7 @@ class RandomViewController: UIViewController {
     
     
     let randomViewModel  = RandomViewModel()
-let disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()
     var secondsRemaining = 6
     @IBOutlet weak var btn: UIButton!
     @IBOutlet weak var mealCategory: UILabel!
@@ -31,14 +31,9 @@ let disposeBag = DisposeBag()
         image.isSkeletonable = true
         
         
-        /*
-         
-         image.showAnimatedGradientSkeleton(usingGradient: gradient) // Gradient
-         */
         let gradient = SkeletonGradient(baseColor: UIColor.midnightBlue)
-        //SkeletonAppearance.default.tintColor = .green
-       // image.showAnimatedGradientSkeleton()
-        image.showAnimatedGradientSkeleton(usingGradient: gradient) // Gradient
+        
+        image.showAnimatedGradientSkeleton(usingGradient: gradient)
         image.startAnimating()
         image.backgroundColor = .belizeHole
         
@@ -49,7 +44,7 @@ let disposeBag = DisposeBag()
             
         }
         randomViewModel.dataObservable.subscribe({(data) in
-
+            
             self.image.sd_setImage(with: URL(string: data.element!.strMealThumb), completed:{_,_,_,_ in
                 self.image.stopSkeletonAnimation()
                 self.image.hideSkeleton()
@@ -58,31 +53,31 @@ let disposeBag = DisposeBag()
             self.mealCategory.text = "Category:" + data.element!.strCategory
         }).disposed(by: disposeBag)
         self.name()
-
-
+        
+        
     }
     func name() -> Void {
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (Timer) in
             if self.secondsRemaining > 0 {
                 self.btn.setTitle(String(self.secondsRemaining)
-, for: .normal)
+                                  , for: .normal)
                 self.btn.titleLabel?.text = String(self.secondsRemaining)
                 print ("\(self.secondsRemaining) seconds")
                 self.secondsRemaining -= 1
             } else if self.secondsRemaining == 0{
-             
+                
                 self.btn.setTitle("X", for: .normal)
-             //   self.btn.setImage(UIImage(named: "close-icon"), for: UIControl.State.normal)
+                //   self.btn.setImage(UIImage(named: "close-icon"), for: UIControl.State.normal)
                 self.btn.addTarget(self, action: #selector(self.btnPressed), for: UIControl.Event.touchUpInside)
             }
         }
     }
-
+    
     @objc func btnPressed(sender:UIButton){
         let navigationController = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as! NavigationController
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)
-
+        
     }
-
+    
 }
