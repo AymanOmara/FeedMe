@@ -11,6 +11,7 @@ Then another screen will be displayed that holds all meal details , like instruc
 - Reachability
 - SD Web Image
 - SkeletonView
+- SOTabBar
 - Gesture Recognizer 
 
 # Code Specifications 
