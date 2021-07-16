@@ -22,7 +22,7 @@ class RandomViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.isNavigationBarHidden = true
         btn.layer.borderWidth = 2
         btn.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         btn.layer.cornerRadius = btn.frame.size.width / 2
@@ -77,6 +77,7 @@ class RandomViewController: UIViewController {
         let navigationController = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as! NavigationController
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)
+      //  self.navigationController?.pushViewController(navigationController, animated: true)
         
     }
     

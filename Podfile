@@ -13,6 +13,7 @@ target 'FeedMe' do
     pod "TKFormTextField"
     pod 'SDWebImage', '~> 5.0'
     pod 'SkeletonView'
+    pod 'SOTabBar'
 
   target 'FeedMeTests' do
     inherit! :search_paths
