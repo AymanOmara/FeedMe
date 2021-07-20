@@ -24,6 +24,8 @@
 		ED242989269000F400534AF5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED242988269000F400534AF5 /* Constants.swift */; };
 		ED24298B26902DD400534AF5 /* APIContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED24298A26902DD400534AF5 /* APIContracts.swift */; };
 		ED4AD12A26A177C700E29BB6 /* TabHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4AD12926A177C700E29BB6 /* TabHostViewController.swift */; };
+		ED831EC726A7053F00BD6695 /* LocalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED831EC626A7053F00BD6695 /* LocalManager.swift */; };
+		ED831EC926A708C500BD6695 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED831EC826A708C500BD6695 /* FavoriteCell.swift */; };
 		ED84535B268FEDF100A7D289 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84535A268FEDF100A7D289 /* AppDelegate.swift */; };
 		ED84535D268FEDF100A7D289 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84535C268FEDF100A7D289 /* SceneDelegate.swift */; };
 		ED84535F268FEDF100A7D289 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84535E268FEDF100A7D289 /* ViewController.swift */; };
@@ -81,6 +83,8 @@
 		ED242988269000F400534AF5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED24298A26902DD400534AF5 /* APIContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIContracts.swift; sourceTree = "<group>"; };
 		ED4AD12926A177C700E29BB6 /* TabHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHostViewController.swift; sourceTree = "<group>"; };
+		ED831EC626A7053F00BD6695 /* LocalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocalManager.swift; path = FeedMe/Models/LocalManager.swift; sourceTree = SOURCE_ROOT; };
+		ED831EC826A708C500BD6695 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		ED845357268FEDF100A7D289 /* FeedMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED84535A268FEDF100A7D289 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED84535C268FEDF100A7D289 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 		ED84538E268FEE4B00A7D289 /* Local Models */ = {
 			isa = PBXGroup;
 			children = (
+				ED831EC626A7053F00BD6695 /* LocalManager.swift */,
 			);
 			path = "Local Models";
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				ED85F43E269DC82C00A738EF /* FavoriteViewController.swift */,
+				ED831EC826A708C500BD6695 /* FavoriteCell.swift */,
 			);
 			path = FavoriteScreen;
 			sourceTree = "<group>";
@@ -612,6 +618,7 @@
 			files = (
 				ED18D5BF2692793B009C0724 /* Meals.swift in Sources */,
 				ED845878269F032D00128F7C /* RandomViewModel.swift in Sources */,
+				ED831EC926A708C500BD6695 /* FavoriteCell.swift in Sources */,
 				ED24298B26902DD400534AF5 /* APIContracts.swift in Sources */,
 				ED242989269000F400534AF5 /* Constants.swift in Sources */,
 				ED18D5C726927DB5009C0724 /* MealViewController.swift in Sources */,
@@ -621,6 +628,7 @@
 				ED84535F268FEDF100A7D289 /* ViewController.swift in Sources */,
 				ED2429842690006F00534AF5 /* Category.swift in Sources */,
 				ED1FF762269B193E001A8B2A /* MealDetailsViewModel.swift in Sources */,
+				ED831EC726A7053F00BD6695 /* LocalManager.swift in Sources */,
 				ED84587A269F1C9A00128F7C /* NavigationController.swift in Sources */,
 				ED242986269000A900534AF5 /* Network.swift in Sources */,
 				ED845365268FEDF100A7D289 /* FeedMe.xcdatamodeld in Sources */,

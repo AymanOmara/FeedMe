@@ -62,12 +62,12 @@ class RandomViewController: UIViewController {
                 self.btn.setTitle(String(self.secondsRemaining)
                                   , for: .normal)
                 self.btn.titleLabel?.text = String(self.secondsRemaining)
-                print ("\(self.secondsRemaining) seconds")
+                
                 self.secondsRemaining -= 1
             } else if self.secondsRemaining == 0{
                 
                 self.btn.setTitle("X", for: .normal)
-                //   self.btn.setImage(UIImage(named: "close-icon"), for: UIControl.State.normal)
+
                 self.btn.addTarget(self, action: #selector(self.btnPressed), for: UIControl.Event.touchUpInside)
             }
         }
@@ -77,7 +77,6 @@ class RandomViewController: UIViewController {
         let navigationController = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as! NavigationController
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)
-      //  self.navigationController?.pushViewController(navigationController, animated: true)
         
     }
     

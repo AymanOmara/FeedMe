@@ -16,7 +16,7 @@ class RandomViewModel{
     let networking = Networking.shared
     func featchData() -> Void {
         networking.getRandomMeal { data, statusCode, error in
-            print(data!.meals[0].strMeal)
+
             self.dataSubject.onNext(data!.meals[0])
             
         }

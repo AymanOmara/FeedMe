@@ -16,7 +16,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var youtube: UIButton!
     
-    @IBOutlet weak var addToFavorite: UIBarButtonItem!
+ 
     @IBOutlet weak var instractions: UILabel!
     @IBOutlet weak var tags: UILabel!
     @IBOutlet weak var area: UILabel!
@@ -28,8 +28,7 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         youtube.setImage(UIImage(named: "YouTube-icon"), for: UIControl.State.normal )
-//        addToFavorite.addTarget(self, action: #selector(addToFavorite(sender:)), for: UIControl.Event.to)
-//        addToFavorite.action = #selector(setter: addToFavorite)
+
         collectionView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         collectionView.layer.borderWidth = 1
         details.featchData()
@@ -74,13 +73,10 @@ class DetailsViewController: UIViewController {
             }
         }}
     
-    @objc func addToFavorite(sender:UIBarButtonItem){
-print("")
-        if sender.isEnabled{
-            
-
-        }
+    @IBAction func addToFavorite(_ sender: Any) {
         
+        details.SaveToLocal()
     }
+    
     
 }
