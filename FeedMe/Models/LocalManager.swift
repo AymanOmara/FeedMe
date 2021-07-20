@@ -59,11 +59,17 @@ class LocalManager {
         let featchRequst = NSFetchRequest<NSManagedObject>(entityName: "CoreDetails")
         if let array = try? managedContext.fetch(featchRequst){
             for item in array{
-                if item.value(forKey: "id") as! String == id{
-                    managedContext.delete(item)
+                if (item.value(forKey: "id") as! String) == id{
+                    do{ managedContext.delete(item)
+                        try managedContext.save()
+                        
+                    }catch{
+                        print(error.localizedDescription)
+                    }
                 }
             }
         }
+
     }
     
     func retrive(complition:@escaping([mealDetails]?,[UIImage])->Void) ->Void{
