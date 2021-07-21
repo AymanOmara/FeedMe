@@ -10,6 +10,7 @@ import UIKit
 class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     var detailsArray:[mealDetails]?
     var imageArray:[UIImage]?
+    let mealDetailsViewModel = MealDetailsViewModel()
     @IBOutlet weak var tabelView: UITableView!
     let localManager = LocalManager.shared
     override func viewDidLoad() {
@@ -28,7 +29,16 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
         
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let detailsVC = self.storyboard?.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
+        detailsVC.isfromLocal = true
+        detailsVC.details.isFromLocal(mealDetails: detailsArray![indexPath.row])
+        detailsVC.details.details = detailsArray![indexPath.row]
+        detailsVC.details.fetchFromLocal()
+        
+        self.navigationController?.pushViewController(detailsVC, animated: true)
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let detailsArray = detailsArray{
@@ -64,12 +74,10 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
             tableView.deleteRows(at: [indexPath], with: .fade)
             tabelView.reloadData()
             viewWillAppear(true)
-            
-           
-            
-          //  tabelView.reloadData()
-
         }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140
     }
 
     

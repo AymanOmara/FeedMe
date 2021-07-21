@@ -12,6 +12,7 @@ import RxSwift
 
 class DetailsViewController: UIViewController {
     var url:String = ""
+    var isfromLocal = false
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var youtube: UIButton!
@@ -27,11 +28,18 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if !isfromLocal{
+            details.featchData()
+        }
+        else{
+        details.fetchFromLocal()
+       }
         youtube.setImage(UIImage(named: "YouTube-icon"), for: UIControl.State.normal )
 
         collectionView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         collectionView.layer.borderWidth = 1
-        details.featchData()
+
         
         details.dataObservable.subscribe({(data)
             in
@@ -55,6 +63,7 @@ class DetailsViewController: UIViewController {
             
             let cell = cell as! DetailsCollectionCell
             cell.labled.text = data.mesures
+            print(data.mesures)
             cell.measures.text = data.ingredients
         }.disposed(by: dispose)
         

@@ -19,6 +19,7 @@ class MealDetailsViewModel{
     let networking = Networking.shared
     let localManager = LocalManager.shared
     var details:mealDetails!
+    var newDetails:mealDetails!
     var mealID:String = ""
     func featchData() -> Void {
         networking.getMealDetails(url:Constants.baseURL+Constants.mealDetails,mealID: mealID) { data, statusCode, error in
@@ -43,6 +44,44 @@ class MealDetailsViewModel{
     func SaveToLocal() -> Void {
         localManager.add(mealDetails: details, ingredientMesure: noneEmptyIngredientArray)
         
+    }
+
+    func isFromLocal(mealDetails:mealDetails) -> (mealDetails,[IngredientsMesures]) {
+        
+        
+        
+        var ingredientArray = mealDetails.strIngredient1!.components(separatedBy: ", ")
+        var mesureArray =  mealDetails.strMeasure1!.components(separatedBy: ", ")
+        
+        
+        var count = ingredientArray.count
+        var zero = 0
+        for i in noneEmptyIngredientArray{
+            if zero < count{
+                
+                i.ingredients = ingredientArray[zero]
+                i.mesures = mesureArray[zero]
+                zero + 1
+            }
+        }
+        details = mealDetails
+        newDetails = mealDetails
+
+        self.ingredientSubject.onNext(noneEmptyIngredientArray)
+        self.dataSubject.onNext(newDetails)
+        return (mealDetails,noneEmptyIngredientArray)
+    }
+    func fetchFromLocal() -> Void {
+        print("========================================")
+        print("========================================")
+        print("========================================")
+
+        print("========================================")
+        print("========================================")
+        print("========================================")
+        print("========================================")
+        self.ingredientSubject.onNext(noneEmptyIngredientArray)
+        self.dataSubject.onNext(newDetails)
     }
     
     
