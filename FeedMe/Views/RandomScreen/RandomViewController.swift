@@ -76,6 +76,7 @@ class RandomViewController: UIViewController {
     @objc func btnPressed(sender:UIButton){
         let navigationController = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as! NavigationController
         navigationController.modalPresentationStyle = .fullScreen
+        navigationController.modalTransitionStyle = .flipHorizontal
         self.present(navigationController, animated: true, completion: nil)
         
     }

@@ -346,6 +346,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Avb-Uz-9Zl">
+                        <barButtonItem key="leftBarButtonItem" title="Back" image="arrow.left" catalog="system" style="plain" id="7g6-Bi-cez">
+                            <connections>
+                                <action selector="back:" destination="yK0-e5-KBx" id="hQm-hd-RUM"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="heart" catalog="system" id="D7Y-QH-ThU">
                             <color key="tintColor" systemColor="systemRedColor"/>
                             <connections>
@@ -596,6 +601,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="book" catalog="system" width="128" height="102"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="hexagon" catalog="system" width="128" height="124"/>

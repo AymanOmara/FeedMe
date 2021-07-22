@@ -28,6 +28,7 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isToolbarHidden = false
         
         if !isfromLocal{
             details.featchData()
@@ -88,4 +89,7 @@ class DetailsViewController: UIViewController {
     }
     
     
+    @IBAction func back(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

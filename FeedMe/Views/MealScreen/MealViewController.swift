@@ -39,8 +39,29 @@ class MealViewController: UIViewController, UISearchBarDelegate  {
         table.rx.modelSelected(meal.self).subscribe(onNext: {(meal) in
             let mealDetails = self.storyboard?.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
             mealDetails.details.mealID = meal.idMeal
-            
-            self.navigationController?.pushViewController(mealDetails, animated: true)
+//            mealDetails.modalPresentationStyle = .fullScreen
+//            mealDetails.modalTransitionStyle = .flipHorizontal
+            mealDetails.navigationController?.isToolbarHidden = false
+            let navigation = UINavigationController.init(rootViewController: mealDetails)
+            navigation.modalPresentationStyle = .fullScreen
+            navigation.modalTransitionStyle = .flipHorizontal
+            self.present(navigation, animated: true) {
+
+            }
+            /*
+             UINavigationController *navigationController =
+                 [[UINavigationController alloc] initWithRootViewController:myViewController];
+
+             //now present this navigation controller modally
+             [self presentViewController:navigationController
+                                animated:YES
+                                completion:^{
+
+                                     }];
+             */
+//            self.present(mealDetails, animated: true, completion: nil)
+//            mealDetails.modalTransitionStyle = .flipHorizontal
+//            self.navigationController?.pushViewController(mealDetails, animated: true)
             
         }).disposed(by: disposeBag)
         
