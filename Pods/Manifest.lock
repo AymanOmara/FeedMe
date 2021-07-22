@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.3)
+  - lottie-ios (3.2.2)
   - ReachabilitySwift (5.0.0)
   - RxCocoa (6.1.0):
     - RxRelay (= 6.1.0)
@@ -16,6 +17,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - lottie-ios
   - ReachabilitySwift
   - RxCocoa
   - RxSwift
@@ -27,6 +29,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - lottie-ios
     - ReachabilitySwift
     - RxCocoa
     - RxRelay
@@ -38,6 +41,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  lottie-ios: a033bb989eea77d9f99cc4e2bbdd3788229761ad
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
@@ -47,6 +51,6 @@ SPEC CHECKSUMS:
   SOTabBar: 27aea95bd6b39d1be3535c867a2cd3b5adc172e6
   TKFormTextField: def6294d3d3bd944d864ee48d5cc6e36863d6ade
 
-PODFILE CHECKSUM: a0440f40fc0d714b2dc24983c9e44b1b4c59e93a
+PODFILE CHECKSUM: d80451188f75ad5f878e1a47b4a644641fd95c2e
 
 COCOAPODS: 1.10.1

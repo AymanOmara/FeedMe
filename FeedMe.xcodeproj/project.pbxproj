@@ -40,6 +40,8 @@
 		ED84587A269F1C9A00128F7C /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED845879269F1C9A00128F7C /* NavigationController.swift */; };
 		ED85F43F269DC82C00A738EF /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED85F43E269DC82C00A738EF /* FavoriteViewController.swift */; };
 		ED85F441269DCF1C00A738EF /* DetailsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED85F440269DCF1C00A738EF /* DetailsCollectionCell.swift */; };
+		EDF733E626A9D28800676490 /* MealDetailsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF733E526A9D28800676490 /* MealDetailsNavigationController.swift */; };
+		EDF733E826A9DAAB00676490 /* favorite.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF733E726A9DAAB00676490 /* favorite.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,8 @@
 		ED845879269F1C9A00128F7C /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		ED85F43E269DC82C00A738EF /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		ED85F440269DCF1C00A738EF /* DetailsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionCell.swift; sourceTree = "<group>"; };
+		EDF733E526A9D28800676490 /* MealDetailsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsNavigationController.swift; sourceTree = "<group>"; };
+		EDF733E726A9DAAB00676490 /* favorite.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = favorite.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +238,7 @@
 				ED845391268FEE7C00A7D289 /* Views */,
 				ED84536B268FEDF200A7D289 /* Info.plist */,
 				ED845363268FEDF100A7D289 /* FeedMe.xcdatamodeld */,
+				EDF733E526A9D28800676490 /* MealDetailsNavigationController.swift */,
 			);
 			path = FeedMe;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 		ED845391268FEE7C00A7D289 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EDF733E726A9DAAB00676490 /* favorite.json */,
 				ED4AD12826A177A500E29BB6 /* TabBar HostViewController */,
 				ED845870269F023C00128F7C /* RandomScreen */,
 				ED85F43D269DC7DF00A738EF /* FavoriteScreen */,
@@ -487,6 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED84536A268FEDF200A7D289 /* LaunchScreen.storyboard in Resources */,
+				EDF733E826A9DAAB00676490 /* favorite.json in Resources */,
 				ED845367268FEDF200A7D289 /* Assets.xcassets in Resources */,
 				ED845362268FEDF100A7D289 /* Main.storyboard in Resources */,
 			);
@@ -637,6 +644,7 @@
 				ED0ADB74269127C5004B6149 /* CategoryViewModel.swift in Sources */,
 				ED18D5BD269256A4009C0724 /* CategoryCollectionViewCell.swift in Sources */,
 				ED4AD12A26A177C700E29BB6 /* TabHostViewController.swift in Sources */,
+				EDF733E626A9D28800676490 /* MealDetailsNavigationController.swift in Sources */,
 				ED18D5C926927F60009C0724 /* MealViewModel.swift in Sources */,
 				ED18D5C526927CA6009C0724 /* MealsTableViewCell.swift in Sources */,
 				ED0ADB7626914067004B6149 /* ViewControllerContracts.swift in Sources */,

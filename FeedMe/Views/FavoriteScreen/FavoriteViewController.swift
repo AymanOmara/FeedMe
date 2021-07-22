@@ -6,12 +6,14 @@
 //
 
 import UIKit
-
+import  Lottie
 class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     var detailsArray:[mealDetails]?
     var imageArray:[UIImage]?
     let mealDetailsViewModel = MealDetailsViewModel()
     @IBOutlet weak var tabelView: UITableView!
+    let animationView = AnimationView();
+    @IBOutlet weak var noFavortie: UILabel!
     let localManager = LocalManager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +44,14 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let detailsArray = detailsArray{
+            self.hideAnimation()
+//            noFavortie.alpha = 0
+//            tableView.alpha = 1
         return detailsArray.count
         }
+        self.showAnimation()
+//        tableView.alpha = 0
+//        noFavortie.alpha = 1
         return 0
     }
     
@@ -86,8 +94,31 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
             self.detailsArray = details
             self.imageArray = imageArray
         }
+        if detailsArray?.count == 0{
+            self.showAnimation()
+        }
+        else{
+            self.hideAnimation()
         tabelView.reloadData()
-        
+        }
+    }
+    //MARK: -Ayman Animatoin
+        func showAnimation() -> Void {
+            tabelView.alpha = 0
+            animationView.alpha = 1
+            noFavortie.alpha = 1
+            
+            animationView.animation = Animation.named("favorite")
+            animationView.contentMode = .scaleAspectFit
+            animationView.frame = view.bounds
+            animationView.loopMode = .loop
+            view.addSubview(animationView)
+            animationView.play()
+        }
+    func hideAnimation() -> Void {
+        animationView.alpha = 0
+        tabelView.alpha = 1
+        noFavortie.alpha = 0
     }
     
 }

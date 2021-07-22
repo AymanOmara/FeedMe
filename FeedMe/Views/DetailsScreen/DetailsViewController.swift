@@ -17,7 +17,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var youtube: UIButton!
     
- 
+    @IBOutlet weak var backOutlet: UIBarButtonItem!
+    
     @IBOutlet weak var instractions: UILabel!
     @IBOutlet weak var tags: UILabel!
     @IBOutlet weak var area: UILabel!
@@ -29,7 +30,8 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isToolbarHidden = false
-        
+        backOutlet.backButtonBackgroundImage(for: .normal, barMetrics: UIBarMetrics.default)
+//        backOutlet.text
         if !isfromLocal{
             details.featchData()
         }

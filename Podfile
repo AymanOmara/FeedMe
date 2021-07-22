@@ -14,6 +14,7 @@ target 'FeedMe' do
     pod 'SDWebImage', '~> 5.0'
     pod 'SkeletonView'
     pod 'SOTabBar'
+    pod 'lottie-ios'
 
   target 'FeedMeTests' do
     inherit! :search_paths

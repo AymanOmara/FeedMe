@@ -286,21 +286,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5m-1p-G9l">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5m-1p-G9l">
                                 <rect key="frame" x="149" y="350" width="68" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POC-nG-TIw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POC-nG-TIw">
                                 <rect key="frame" x="149" y="393" width="68" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drI-L5-P35">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drI-L5-P35">
                                 <rect key="frame" x="149" y="470" width="81" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -360,6 +360,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="area" destination="POC-nG-TIw" id="w5E-1k-6Jt"/>
+                        <outlet property="backOutlet" destination="7g6-Bi-cez" id="Vog-fb-6bN"/>
                         <outlet property="categoryName" destination="Z5m-1p-G9l" id="TFR-A1-bMa"/>
                         <outlet property="collectionView" destination="ojj-2e-ak3" id="IXM-6R-Br0"/>
                         <outlet property="image" destination="RdO-Fi-2IX" id="3BM-1Y-gMZ"/>
@@ -456,10 +457,10 @@
             </objects>
             <point key="canvasLocation" x="1382.608695652174" y="45.535714285714285"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Meal Details Navigation Controller-->
         <scene sceneID="VXR-FO-jCk">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e5T-hF-ddY" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MealDetailsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="e5T-hF-ddY" customClass="MealDetailsNavigationController" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="43V-Wz-eWn">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -537,6 +538,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Favorite Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7G-bE-0YM">
+                                <rect key="frame" x="69" y="393" width="261" height="66"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="153" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="R2b-Be-bnw">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -587,11 +594,14 @@
                             <constraint firstItem="R2b-Be-bnw" firstAttribute="trailing" secondItem="gjd-Rv-eEH" secondAttribute="trailing" id="68d-DG-R5H"/>
                             <constraint firstItem="R2b-Be-bnw" firstAttribute="top" secondItem="bF0-OD-TvN" secondAttribute="top" id="Qtt-Xy-4tr"/>
                             <constraint firstItem="gjd-Rv-eEH" firstAttribute="bottom" secondItem="R2b-Be-bnw" secondAttribute="bottom" id="Uh7-4q-4Ay"/>
+                            <constraint firstItem="a7G-bE-0YM" firstAttribute="centerY" secondItem="bF0-OD-TvN" secondAttribute="centerY" id="aVd-ml-Ar6"/>
+                            <constraint firstItem="a7G-bE-0YM" firstAttribute="centerX" secondItem="bF0-OD-TvN" secondAttribute="centerX" id="jGn-6h-hQf"/>
                             <constraint firstItem="R2b-Be-bnw" firstAttribute="leading" secondItem="gjd-Rv-eEH" secondAttribute="leading" id="zc8-Gu-BXT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" largeTitleDisplayMode="never" id="JYi-uf-lRR"/>
                     <connections>
+                        <outlet property="noFavortie" destination="a7G-bE-0YM" id="SSD-D5-ebq"/>
                         <outlet property="tabelView" destination="R2b-Be-bnw" id="iUA-hZ-gPc"/>
                     </connections>
                 </viewController>
