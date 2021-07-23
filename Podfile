@@ -15,6 +15,7 @@ target 'FeedMe' do
     pod 'SkeletonView'
     pod 'SOTabBar'
     pod 'lottie-ios'
+    pod 'SCLAlertView'
 
   target 'FeedMeTests' do
     inherit! :search_paths

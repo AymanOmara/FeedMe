@@ -9,7 +9,7 @@ import UIKit
 import SDWebImage
 import RxCocoa
 import RxSwift
-
+import SCLAlertView
 class DetailsViewController: UIViewController {
     var url:String = ""
     var isfromLocal = false
@@ -17,6 +17,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var youtube: UIButton!
     
+    @IBOutlet weak var favoriteOutlet: UIBarButtonItem!
     @IBOutlet weak var backOutlet: UIBarButtonItem!
     
     @IBOutlet weak var instractions: UILabel!
@@ -26,47 +27,43 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var mealName: UILabel!
     let details = MealDetailsViewModel()
     let dispose = DisposeBag()
-    
+    var errorMessage:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isToolbarHidden = false
         backOutlet.backButtonBackgroundImage(for: .normal, barMetrics: UIBarMetrics.default)
-//        backOutlet.text
-        if !isfromLocal{
-            details.featchData()
-        }
-        else{
-        details.fetchFromLocal()
-       }
-        youtube.setImage(UIImage(named: "YouTube-icon"), for: UIControl.State.normal )
 
+
+        youtube.setImage(UIImage(named: "YouTube-icon"), for: UIControl.State.normal )
+        
         collectionView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         collectionView.layer.borderWidth = 1
-
-        
-        details.dataObservable.subscribe({(data)
+        details.dataObservable.subscribe(onNext: {(data,image)
             in
-            self.title  = data.element?.strMeal
-            self.instractions.text = data.element?.strInstructions
-            self.tags.text = data.element?.strTags
-            self.area.text = data.element?.strArea
-            self.categoryName.text = data.element?.strCategory
-            self.url = data.element?.strYoutube ?? ""
-            if data.element?.strYoutube == ""{
+            self.title  = data.strMeal
+            self.instractions.text = data.strInstructions
+            self.tags.text = data.strTags
+            self.area.text = data.strArea
+            self.categoryName.text = data.strCategory
+            self.url = data.strYoutube ?? ""
+            if data.strYoutube == ""{
                 self.youtube.alpha = 0.2
                 self.youtube.isUserInteractionEnabled = false
             }
             self.youtube.addTarget(self, action:#selector(self.openYoutube), for: .touchUpInside)
-            self.mealName.text = data.element?.strMeal
-            self.image.sd_setImage(with: URL(string: data.element!.strMealThumb), placeholderImage: UIImage(named: "placeholder"))
-            
+            self.mealName.text = data.strMeal
+            if let image = image{
+                self.image.image = image
+            }
+            else{
+                self.image.sd_setImage(with: URL(string: data.strMealThumb), placeholderImage: UIImage(named: "placeholder"))
+            }
         }).disposed(by: dispose)
         
         details.ingredientObvservable.bind(to: collectionView.rx.items(cellIdentifier: "ingreddients")){row,data,cell in
             
             let cell = cell as! DetailsCollectionCell
             cell.labled.text = data.mesures
-            print(data.mesures)
             cell.measures.text = data.ingredients
         }.disposed(by: dispose)
         
@@ -86,12 +83,29 @@ class DetailsViewController: UIViewController {
         }}
     
     @IBAction func addToFavorite(_ sender: Any) {
-        
-        details.SaveToLocal()
+        details.SaveToLocal(complition: {(messege) in
+            self.errorMessage = messege
+        })
+        if errorMessage == ""{
+            let alertViewResponder: SCLAlertViewResponder = SCLAlertView().showSuccess("Done", subTitle: "This Meal Has Benn Add to favorites")
+            favoriteOutlet.image = UIImage(systemName: "heart.fill")
+
+
+        }
+
+
     }
     
     
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        if !isfromLocal{
+            details.featchData()
+        }
+        else if(isfromLocal){
+            details.featchCoreDetails()
+        }
     }
 }

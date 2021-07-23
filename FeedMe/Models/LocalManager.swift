@@ -12,7 +12,7 @@ import SDWebImage
 class LocalManager {
     static let shared = LocalManager()
     
-    func add(mealDetails:mealDetails,ingredientMesure:[IngredientsMesures]) -> Bool {
+    func add(mealDetails:mealDetails,ingredientMesure:[IngredientsMesures],complition:@escaping(String)->Void) -> Bool {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "CoreDetails", in: managedContext)
@@ -46,9 +46,10 @@ class LocalManager {
         
         do{
             try managedContext.save()
+            
             return true
         }catch{
-            print(error.localizedDescription)
+            complition(error.localizedDescription)
             return false
         }
         
@@ -71,7 +72,21 @@ class LocalManager {
         }
 
     }
-    
+    func isSavedBefore(id:String)-> Bool{
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let featchRequst = NSFetchRequest<NSManagedObject>(entityName: "CoreDetails")
+        if let array = try? managedContext.fetch(featchRequst){
+            for item in array{
+                if (item.value(forKey: "id") as! String) == id{
+                    return true
+                }
+                
+            }
+        }
+        return false
+    }
+    //MARK:- Refactor
     func retrive(complition:@escaping([mealDetails]?,[UIImage])->Void) ->Void{
         var arr:[mealDetails] = [mealDetails]()
        
@@ -101,6 +116,28 @@ class LocalManager {
                 
             }
         }
+    }
+    func coreDetails(id:String,completion:@escaping(mealDetails,UIImage)->Void){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let featchRequst = NSFetchRequest<NSManagedObject>(entityName: "CoreDetails")
+        if let array = try? managedContext.fetch(featchRequst){
+            if array.count > 0 {
+                for i in array{
+                    if i.value(forKey: "id") as! String == id{
+                        let image  = UIImage(data: (i.value(forKey: "image") as! Data))!
+                        let stringRepresentation = ((NSKeyedUnarchiver.unarchiveObject(with: i.value(forKey: "ingrediants") as! Data) as! [String]).description)
+                        let mesureRepresentation = ((NSKeyedUnarchiver.unarchiveObject(with: i.value(forKey: "mesures") as! Data) as! [String]).description)
+                        var details = mealDetails(strMeal: i.value(forKey: "name") as! String, strMealThumb: "", idMeal: i.value(forKey: "id") as! String, strCategory:  i.value(forKey: "category") as! String, strArea: i.value(forKey: "area") as! String, strInstructions: i.value(forKey: "instructions") as! String, strTags: i.value(forKey: "tag") as? String, strYoutube: i.value(forKey: "youtube") as? String,strIngredient1: stringRepresentation,strMeasure1: mesureRepresentation)
+                        
+                        completion(details,image)
+                    }
+                }
+            }
+            
+        }
+        
     }
     func upData() -> Void {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

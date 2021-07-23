@@ -8,6 +8,7 @@ PODS:
   - RxRelay (6.1.0):
     - RxSwift (= 6.1.0)
   - RxSwift (6.1.0)
+  - SCLAlertView (0.8)
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
@@ -21,6 +22,7 @@ DEPENDENCIES:
   - ReachabilitySwift
   - RxCocoa
   - RxSwift
+  - SCLAlertView
   - SDWebImage (~> 5.0)
   - SkeletonView
   - SOTabBar
@@ -34,6 +36,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SCLAlertView
     - SDWebImage
     - SkeletonView
     - SOTabBar
@@ -46,11 +49,12 @@ SPEC CHECKSUMS:
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SkeletonView: cac18a3ac4f893b09d99e65072d806ef08377aae
   SOTabBar: 27aea95bd6b39d1be3535c867a2cd3b5adc172e6
   TKFormTextField: def6294d3d3bd944d864ee48d5cc6e36863d6ade
 
-PODFILE CHECKSUM: d80451188f75ad5f878e1a47b4a644641fd95c2e
+PODFILE CHECKSUM: 0e37e5503690e2fa7708a9117590aa084e7045c6
 
 COCOAPODS: 1.10.1

@@ -363,6 +363,7 @@
                         <outlet property="backOutlet" destination="7g6-Bi-cez" id="Vog-fb-6bN"/>
                         <outlet property="categoryName" destination="Z5m-1p-G9l" id="TFR-A1-bMa"/>
                         <outlet property="collectionView" destination="ojj-2e-ak3" id="IXM-6R-Br0"/>
+                        <outlet property="favoriteOutlet" destination="D7Y-QH-ThU" id="E8e-nj-g2G"/>
                         <outlet property="image" destination="RdO-Fi-2IX" id="3BM-1Y-gMZ"/>
                         <outlet property="instractions" destination="fgn-VI-TMk" id="0Mv-U8-g6J"/>
                         <outlet property="mealName" destination="mll-30-Wok" id="mQE-RR-xYj"/>
@@ -457,10 +458,10 @@
             </objects>
             <point key="canvasLocation" x="1382.608695652174" y="45.535714285714285"/>
         </scene>
-        <!--Meal Details Navigation Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="VXR-FO-jCk">
             <objects>
-                <navigationController storyboardIdentifier="MealDetailsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="e5T-hF-ddY" customClass="MealDetailsNavigationController" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MealDetailsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="e5T-hF-ddY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="43V-Wz-eWn">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

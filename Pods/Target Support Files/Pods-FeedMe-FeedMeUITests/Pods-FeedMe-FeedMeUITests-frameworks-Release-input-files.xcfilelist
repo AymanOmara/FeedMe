@@ -4,6 +4,7 @@ ${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework
 ${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
 ${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
 ${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
+${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
 ${BUILT_PRODUCTS_DIR}/SOTabBar/SOTabBar.framework
 ${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework

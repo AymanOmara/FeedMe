@@ -60,33 +60,40 @@
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
-		<key>SDWebImage.xcscheme</key>
+		<key>SCLAlertView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>9</integer>
 		</dict>
-		<key>SOTabBar.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>11</integer>
-		</dict>
-		<key>SkeletonView.xcscheme</key>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>10</integer>
 		</dict>
-		<key>TKFormTextField.xcscheme</key>
+		<key>SOTabBar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>12</integer>
+		</dict>
+		<key>SkeletonView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
+		<key>TKFormTextField.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>13</integer>
 		</dict>
 		<key>lottie-ios.xcscheme</key>
 		<dict>

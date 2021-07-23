@@ -35,9 +35,10 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
         
         let detailsVC = self.storyboard?.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
         detailsVC.isfromLocal = true
-        detailsVC.details.isFromLocal(mealDetails: detailsArray![indexPath.row])
-        detailsVC.details.details = detailsArray![indexPath.row]
-        detailsVC.details.fetchFromLocal()
+        detailsVC.details.coreID = detailsArray![indexPath.row].idMeal
+//        detailsVC.details.isFromLocal(mealDetails: detailsArray![indexPath.row])
+//        detailsVC.details.details = detailsArray![indexPath.row]
+//        detailsVC.details.fetchFromLocal()
         
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
@@ -45,13 +46,10 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let detailsArray = detailsArray{
             self.hideAnimation()
-//            noFavortie.alpha = 0
-//            tableView.alpha = 1
+
         return detailsArray.count
         }
         self.showAnimation()
-//        tableView.alpha = 0
-//        noFavortie.alpha = 1
         return 0
     }
     

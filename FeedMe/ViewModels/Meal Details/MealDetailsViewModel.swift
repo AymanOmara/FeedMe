@@ -7,11 +7,14 @@
 
 import Foundation
 import RxSwift
+import SCLAlertView
 class MealDetailsViewModel{
-    var dataObservable:Observable<mealDetails>
+    
+    
+    var dataObservable:Observable<(mealDetails,UIImage?)>
     var ingredientObvservable:Observable<[IngredientsMesures]>
     var errorObservable:Observable<(String,Int)>
-    var dataSubject = PublishSubject<mealDetails>()
+    var dataSubject = PublishSubject<(mealDetails,UIImage?)>()
     var errorSubject = PublishSubject<(String,Int)>()
     var ingredientSubject = PublishSubject<[IngredientsMesures]>()
     var allIngredients = [IngredientsMesures]();
@@ -21,6 +24,7 @@ class MealDetailsViewModel{
     var details:mealDetails!
     var newDetails:mealDetails!
     var mealID:String = ""
+    var coreID:String = ""
     func featchData() -> Void {
         networking.getMealDetails(url:Constants.baseURL+Constants.mealDetails,mealID: mealID) { data, statusCode, error in
             guard let data = data else{
@@ -34,57 +38,51 @@ class MealDetailsViewModel{
                     self.noneEmptyIngredientArray.append(i)
                 }
             }
-            self.dataSubject.onNext(data.meals[0])
+            self.dataSubject.onNext((data.meals[0],nil))
             
             self.ingredientSubject.onNext(self.noneEmptyIngredientArray)
             
             
         }
     }
-    func SaveToLocal() -> Void {
-        localManager.add(mealDetails: details, ingredientMesure: noneEmptyIngredientArray)
-        
-    }
-
-    func isFromLocal(mealDetails:mealDetails) -> (mealDetails,[IngredientsMesures]) {
-        
-        
-        
-        var ingredientArray = mealDetails.strIngredient1!.components(separatedBy: ", ")
-        var mesureArray =  mealDetails.strMeasure1!.components(separatedBy: ", ")
-        
-        
-        var count = ingredientArray.count
-        var zero = 0
-        for i in noneEmptyIngredientArray{
-            if zero < count{
-                
-                i.ingredients = ingredientArray[zero]
-                i.mesures = mesureArray[zero]
-                zero + 1
-            }
+    func SaveToLocal(complition:@escaping(String)->Void) -> Void {
+        if coreID == ""{
+            localManager.add(mealDetails: details, ingredientMesure: noneEmptyIngredientArray, complition:{(error) in
+                if error == ""{
+                    complition("")
+                }
+                else{
+                    complition(error)
+                }
+            })
+            
         }
-        details = mealDetails
-        newDetails = mealDetails
-
-        self.ingredientSubject.onNext(noneEmptyIngredientArray)
-        self.dataSubject.onNext(newDetails)
-        return (mealDetails,noneEmptyIngredientArray)
-    }
-    func fetchFromLocal() -> Void {
-        print("========================================")
-        print("========================================")
-        print("========================================")
-
-        print("========================================")
-        print("========================================")
-        print("========================================")
-        print("========================================")
-        self.ingredientSubject.onNext(noneEmptyIngredientArray)
-        self.dataSubject.onNext(newDetails)
+        
     }
     
+    func featchCoreDetails(){
+        localManager.coreDetails(id: coreID) { mealDetails, image in
+            
+            let ingredientArray = mealDetails.strIngredient1!.components(separatedBy: ", ")
+            let mesureArray =  mealDetails.strMeasure1!.components(separatedBy: ", ")
+            let count = (ingredientArray.count) - 1
+            
+            for i in 0...count{
+                
+                self.noneEmptyIngredientArray.append(IngredientsMesures(ingredients: ingredientArray[i], mesures: mesureArray[i]))
+                
+            }
+            
+            self.dataSubject.onNext((mealDetails,image))
+            self.ingredientSubject.onNext(self.noneEmptyIngredientArray)
+            
+            
+        }
+    }
     
+    func checkIfSaved(){
+      //  localManager.isSavedBefore(id: <#T##String#>)
+    }
     
     
     init() {
