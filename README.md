@@ -12,6 +12,7 @@ Then another screen will be displayed that holds all meal details , like instruc
 - SD Web Image
 - SkeletonView
 - SOTabBar
+- lottie-Animation
 - Gesture Recognizer 
 
 # Code Specifications 
