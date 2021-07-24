@@ -80,7 +80,7 @@ class DetailsViewController: UIViewController {
     
     @IBAction func addToFavorite(_ sender: Any) {
         if details.checkIfSaved(){
-            let alertViewResponder: SCLAlertViewResponder = SCLAlertView().showError("Error", subTitle:"This meal is saved before")
+            let _: SCLAlertViewResponder = SCLAlertView().showError("Error", subTitle:"This meal is saved before")
         }
         else {
         details.SaveToLocal(complition: {(messege) in
@@ -108,6 +108,6 @@ class DetailsViewController: UIViewController {
         }
     }
     func showDialogue() -> Void {
-        let alertViewResponder: SCLAlertViewResponder = SCLAlertView().showSuccess("Done", subTitle: "This Meal Has Benn Add to favorites")
+        let _: SCLAlertViewResponder = SCLAlertView().showSuccess("Done", subTitle: "This Meal Has Benn Add to favorites")
     }
 }

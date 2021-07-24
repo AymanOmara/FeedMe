@@ -30,8 +30,8 @@ class LocalManager {
             ingredient.append(i.mesures!)
             mesure.append(i.ingredients!)
         }
-        let ingredienData = NSKeyedArchiver.archivedData(withRootObject:ingredient)
-        let mesureData = NSKeyedArchiver.archivedData(withRootObject: mesure)
+        let ingredienData = try! NSKeyedArchiver.archivedData(withRootObject:ingredient,requiringSecureCoding: false)
+        let mesureData = try! NSKeyedArchiver.archivedData(withRootObject: mesure,requiringSecureCoding: false)
         meal.setValue(ingredienData, forKey: "ingrediants")
         
         meal.setValue(mesureData, forKey: "mesures")
@@ -99,7 +99,7 @@ class LocalManager {
                     
                     let image  = UIImage(data: (i.value(forKey: "image") as! Data))!
                     imageAraar.append(image)
-                    var details = mealDetails(strMeal: i.value(forKey: "name") as! String, strMealThumb: "", idMeal: i.value(forKey: "id") as! String, strCategory:  i.value(forKey: "category") as! String, strArea: i.value(forKey: "area") as! String, strInstructions: i.value(forKey: "instructions") as! String, strTags: i.value(forKey: "tag") as? String, strYoutube: i.value(forKey: "youtube") as? String,strIngredient1: stringRepresentation,strMeasure1: mesureRepresentation)
+                    let details = mealDetails(strMeal: i.value(forKey: "name") as! String, strMealThumb: "", idMeal: i.value(forKey: "id") as! String, strCategory:  i.value(forKey: "category") as? String, strArea: i.value(forKey: "area") as? String, strInstructions: (i.value(forKey: "instructions") as! String), strTags: i.value(forKey: "tag") as? String, strYoutube: i.value(forKey: "youtube") as? String,strIngredient1: stringRepresentation,strMeasure1: mesureRepresentation)
                     
                     
                     arr.append(details)
@@ -121,7 +121,7 @@ class LocalManager {
                         let image  = UIImage(data: (i.value(forKey: "image") as! Data))!
                         let stringRepresentation = ((NSKeyedUnarchiver.unarchiveObject(with: i.value(forKey: "ingrediants") as! Data) as! [String]).description)
                         let mesureRepresentation = ((NSKeyedUnarchiver.unarchiveObject(with: i.value(forKey: "mesures") as! Data) as! [String]).description)
-                        var details = mealDetails(strMeal: i.value(forKey: "name") as! String, strMealThumb: "", idMeal: i.value(forKey: "id") as! String, strCategory:  i.value(forKey: "category") as! String, strArea: i.value(forKey: "area") as! String, strInstructions: i.value(forKey: "instructions") as! String, strTags: i.value(forKey: "tag") as? String, strYoutube: i.value(forKey: "youtube") as? String,strIngredient1: stringRepresentation,strMeasure1: mesureRepresentation)
+                        let details = mealDetails(strMeal: i.value(forKey: "name") as! String, strMealThumb: "", idMeal: i.value(forKey: "id") as! String, strCategory:  (i.value(forKey: "category") as! String), strArea: (i.value(forKey: "area") as! String), strInstructions: (i.value(forKey: "instructions") as! String), strTags: i.value(forKey: "tag") as? String, strYoutube: i.value(forKey: "youtube") as? String,strIngredient1: stringRepresentation,strMeasure1: mesureRepresentation)
                         
                         completion(details,image)
                     }
