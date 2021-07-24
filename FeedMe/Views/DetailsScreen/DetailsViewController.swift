@@ -11,6 +11,8 @@ import RxCocoa
 import RxSwift
 import SCLAlertView
 class DetailsViewController: UIViewController {
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     var url:String = ""
     var isfromLocal = false
     @IBOutlet weak var collectionView: UICollectionView!
@@ -29,7 +31,7 @@ class DetailsViewController: UIViewController {
     var errorMessage:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: instractions.bottomAnchor).isActive = true
         youtube.setImage(UIImage(named: "YouTube-icon"), for: UIControl.State.normal )
         
         collectionView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
