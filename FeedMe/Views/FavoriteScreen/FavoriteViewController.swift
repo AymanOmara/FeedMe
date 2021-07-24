@@ -106,7 +106,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
             animationView.alpha = 1
             noFavortie.alpha = 1
             
-            animationView.animation = Animation.named("favorite")
+            animationView.animation = Animation.named("empty")
             animationView.contentMode = .scaleAspectFit
             animationView.frame = view.bounds
             animationView.loopMode = .loop

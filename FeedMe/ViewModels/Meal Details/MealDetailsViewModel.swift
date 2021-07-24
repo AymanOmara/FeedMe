@@ -7,7 +7,7 @@
 
 import Foundation
 import RxSwift
-import SCLAlertView
+//import SCLAlertView
 class MealDetailsViewModel{
     
     
@@ -80,8 +80,14 @@ class MealDetailsViewModel{
         }
     }
     
-    func checkIfSaved(){
-      //  localManager.isSavedBefore(id: <#T##String#>)
+    func checkIfSaved()-> Bool{
+        if mealID == ""{
+         return   localManager.isSavedBefore(id: coreID)
+        }
+        else if(coreID == ""){
+        return    localManager.isSavedBefore(id: mealID)
+        }
+        return false
     }
     
     

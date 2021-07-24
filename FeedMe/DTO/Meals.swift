@@ -28,11 +28,7 @@ struct mealDetails: Codable {
 class MealDetails:Codable{
     let meals:[mealDetails]
 }
-class IngredientsMesures:NSCoding{
-    func encode(with coder: NSCoder) {
-        if let mesures = mesures { coder.encode(mesures, forKey: "mesures") }
-        if let ingredients = ingredients { coder.encode(ingredients, forKey: "ingredients") }
-    }
+class IngredientsMesures{
     
     var ingredients:String?
     var mesures:String?
@@ -45,15 +41,6 @@ class IngredientsMesures:NSCoding{
     init() {
         
     }
-    required convenience init(coder decoder: NSCoder) {
-        self.init()
-        self.ingredients = (decoder.decodeObject(forKey:"ingredients") as! String)
-        self.mesures = (decoder.decodeObject(forKey: "mesures") as! String)
-    }
-    convenience init(name: String, age: String) {
-        self.init()
-        self.ingredients = ingredients
-        self.mesures = mesures
-    }
+
     
 }

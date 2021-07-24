@@ -18,6 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Pz8-Gu-tmh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                     </view>
                     <navigationItem key="navigationItem" id="hhO-aM-4Ya"/>
                 </viewController>
@@ -95,14 +96,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="left" id="REr-SS-PvZ"/>
             </objects>
             <point key="canvasLocation" x="6175.36231884058" y="45.535714285714285"/>
         </scene>
         <!--Meals-->
         <scene sceneID="GkY-Yv-JYd">
             <objects>
-                <viewController storyboardIdentifier="MealViewController" id="39Z-lE-vYK" customClass="MealViewController" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MealViewController" hidesBottomBarWhenPushed="YES" id="39Z-lE-vYK" customClass="MealViewController" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O5W-8L-5UK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -178,8 +178,8 @@
         <!--Details View Controller-->
         <scene sceneID="gyH-BE-TA7">
             <objects>
-                <viewController storyboardIdentifier="DetailsViewController" id="yK0-e5-KBx" customClass="DetailsViewController" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fnn-FI-leI">
+                <viewController storyboardIdentifier="DetailsViewController" hidesBottomBarWhenPushed="YES" id="yK0-e5-KBx" customClass="DetailsViewController" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fnn-FI-leI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -346,11 +346,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Avb-Uz-9Zl">
-                        <barButtonItem key="leftBarButtonItem" title="Back" image="arrow.left" catalog="system" style="plain" id="7g6-Bi-cez">
-                            <connections>
-                                <action selector="back:" destination="yK0-e5-KBx" id="hQm-hd-RUM"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="heart" catalog="system" id="D7Y-QH-ThU">
                             <color key="tintColor" systemColor="systemRedColor"/>
                             <connections>
@@ -360,7 +355,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="area" destination="POC-nG-TIw" id="w5E-1k-6Jt"/>
-                        <outlet property="backOutlet" destination="7g6-Bi-cez" id="Vog-fb-6bN"/>
                         <outlet property="categoryName" destination="Z5m-1p-G9l" id="TFR-A1-bMa"/>
                         <outlet property="collectionView" destination="ojj-2e-ak3" id="IXM-6R-Br0"/>
                         <outlet property="favoriteOutlet" destination="D7Y-QH-ThU" id="E8e-nj-g2G"/>
@@ -378,7 +372,7 @@
         <!--Navigation Controller-->
         <scene sceneID="0vC-0R-Ld8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ru2-Fi-dg7" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="Ru2-Fi-dg7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oiN-Gg-ipp">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -461,7 +455,7 @@
         <!--Navigation Controller-->
         <scene sceneID="VXR-FO-jCk">
             <objects>
-                <navigationController storyboardIdentifier="MealDetailsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="e5T-hF-ddY" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MealDetailsNavigationController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="e5T-hF-ddY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="43V-Wz-eWn">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -612,7 +606,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="book" catalog="system" width="128" height="102"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="hexagon" catalog="system" width="128" height="124"/>

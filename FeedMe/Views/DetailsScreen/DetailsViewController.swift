@@ -18,7 +18,6 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var youtube: UIButton!
     
     @IBOutlet weak var favoriteOutlet: UIBarButtonItem!
-    @IBOutlet weak var backOutlet: UIBarButtonItem!
     
     @IBOutlet weak var instractions: UILabel!
     @IBOutlet weak var tags: UILabel!
@@ -30,9 +29,6 @@ class DetailsViewController: UIViewController {
     var errorMessage:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isToolbarHidden = false
-        backOutlet.backButtonBackgroundImage(for: .normal, barMetrics: UIBarMetrics.default)
-
 
         youtube.setImage(UIImage(named: "YouTube-icon"), for: UIControl.State.normal )
         
@@ -83,23 +79,23 @@ class DetailsViewController: UIViewController {
         }}
     
     @IBAction func addToFavorite(_ sender: Any) {
+        if details.checkIfSaved(){
+            let alertViewResponder: SCLAlertViewResponder = SCLAlertView().showError("Error", subTitle:"This meal is saved before")
+        }
+        else {
         details.SaveToLocal(complition: {(messege) in
             self.errorMessage = messege
         })
         if errorMessage == ""{
-            let alertViewResponder: SCLAlertViewResponder = SCLAlertView().showSuccess("Done", subTitle: "This Meal Has Benn Add to favorites")
+            self.showDialogue()
             favoriteOutlet.image = UIImage(systemName: "heart.fill")
 
 
         }
 
+        }
+    }
 
-    }
-    
-    
-    @IBAction func back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
     override func viewWillAppear(_ animated: Bool) {
         if !isfromLocal{
             details.featchData()
@@ -107,5 +103,11 @@ class DetailsViewController: UIViewController {
         else if(isfromLocal){
             details.featchCoreDetails()
         }
+        if details.checkIfSaved(){
+            favoriteOutlet.image = UIImage(systemName: "heart.fill")
+        }
+    }
+    func showDialogue() -> Void {
+        let alertViewResponder: SCLAlertViewResponder = SCLAlertView().showSuccess("Done", subTitle: "This Meal Has Benn Add to favorites")
     }
 }
