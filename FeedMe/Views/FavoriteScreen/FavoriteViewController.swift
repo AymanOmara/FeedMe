@@ -13,10 +13,12 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
     let mealDetailsViewModel = MealDetailsViewModel()
     @IBOutlet weak var tabelView: UITableView!
     let animationView = AnimationView();
-    @IBOutlet weak var noFavortie: UILabel!
+//    @IBOutlet weak var noFavortie: UILabel!
     let localManager = LocalManager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
+//        tabelView.rowHeight = tabelView.automaticDimension
+//        tabelView.rowHeight.
         localManager.retrive { details,imageArray in
             self.detailsArray = details
             self.imageArray = imageArray
@@ -24,10 +26,10 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
         tabelView.delegate = self
         tabelView.dataSource = self
         tabelView.tableFooterView = UIView()
-
+        
         self.navigationController?.isToolbarHidden = true
         tabelView.reloadData()
-
+        
         
     }
     
@@ -36,18 +38,18 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
         let detailsVC = self.storyboard?.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
         detailsVC.isfromLocal = true
         detailsVC.details.coreID = detailsArray![indexPath.row].idMeal
-//        detailsVC.details.isFromLocal(mealDetails: detailsArray![indexPath.row])
-//        detailsVC.details.details = detailsArray![indexPath.row]
-//        detailsVC.details.fetchFromLocal()
+        //        detailsVC.details.isFromLocal(mealDetails: detailsArray![indexPath.row])
+        //        detailsVC.details.details = detailsArray![indexPath.row]
+        //        detailsVC.details.fetchFromLocal()
         
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let detailsArray = detailsArray{
             self.hideAnimation()
-
-        return detailsArray.count
+            
+            return detailsArray.count
         }
         self.showAnimation()
         return 0
@@ -55,12 +57,12 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteCell", for: indexPath) as! FavoriteCell
-       
-          
+        
+        
         
         cell.favoriteImage.image = imageArray![indexPath.row]
         cell.label.text = detailsArray![indexPath.row].strMeal
-       
+        
         return cell
         
         
@@ -68,9 +70,6 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         true
     }
-    
-    
-
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete{
@@ -85,7 +84,17 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
-
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 400
+//    }
+    /*
+     - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+         return 70.0;
+     }
+     - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+         return  UITableViewAutomaticDimension;
+     }
+     */
     
     override func viewWillAppear(_ animated: Bool) {
         localManager.retrive { details,imageArray in
@@ -97,26 +106,26 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
         }
         else{
             self.hideAnimation()
-        tabelView.reloadData()
+            tabelView.reloadData()
         }
     }
-    //MARK: -Ayman Animatoin
-        func showAnimation() -> Void {
-            tabelView.alpha = 0
-            animationView.alpha = 1
-            noFavortie.alpha = 1
-            
-            animationView.animation = Animation.named("empty")
-            animationView.contentMode = .scaleAspectFit
-            animationView.frame = view.bounds
-            animationView.loopMode = .loop
-            view.addSubview(animationView)
-            animationView.play()
-        }
+    
+    func showAnimation() -> Void {
+        tabelView.alpha = 0
+        animationView.alpha = 1
+//        noFavortie.alpha = 1
+        
+        animationView.animation = Animation.named("empty")
+        animationView.contentMode = .scaleAspectFit
+        animationView.frame = view.bounds
+        animationView.loopMode = .loop
+        view.addSubview(animationView)
+        animationView.play()
+    }
     func hideAnimation() -> Void {
         animationView.alpha = 0
         tabelView.alpha = 1
-        noFavortie.alpha = 0
+//        noFavortie.alpha = 0
     }
     
 }

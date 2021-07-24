@@ -52,11 +52,11 @@ class RandomViewController: UIViewController {
             self.mealName.text = data.element!.strMeal
             self.mealCategory.text = "Category:" + data.element!.strCategory
         }).disposed(by: disposeBag)
-        self.name()
+        self.countDown()
         
         
     }
-    func name() -> Void {
+    func countDown() -> Void {
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (Timer) in
             if self.secondsRemaining > 0 {
                 self.btn.setTitle(String(self.secondsRemaining)
