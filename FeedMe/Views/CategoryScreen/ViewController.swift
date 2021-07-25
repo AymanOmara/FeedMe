@@ -57,11 +57,11 @@ class ViewController: UIViewController{
         categoryViewModel.categoryObservable.bind(to: collectionView.rx.items(cellIdentifier: "CategoryCollectionViewCell")){row,data,cell in
             
             let cell = cell as! CategoryCollectionViewCell
-            self.collectionView.layer.cornerRadius = 10
+            self.collectionView.layer.cornerRadius = 18
             self.collectionView.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
             cell.cellImage.layer.borderColor = #colorLiteral(red: 0.3703787327, green: 0.2112608552, blue: 0.4184725881, alpha: 1)
             cell.cellImage.layer.borderWidth = 2
-            cell.cellImage.layer.cornerRadius = 5
+            cell.cellImage.layer.cornerRadius = 18
             cell.cellImage.sd_setImage(with: URL(string: data.strCategoryThumb), placeholderImage: UIImage(named: "placeholder.png"))
             cell.callName.text = data.strCategory
             
