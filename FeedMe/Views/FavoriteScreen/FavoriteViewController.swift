@@ -25,7 +25,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
         tabelView.dataSource = self
         tabelView.tableFooterView = UIView()
         
-        self.navigationController?.isToolbarHidden = true
+//        self.navigationController?.isToolbarHidden = true
         tabelView.reloadData()
         
         

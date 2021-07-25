@@ -11,7 +11,7 @@ import RxSwift
 import SDWebImage
 import Lottie
 class MealViewController: UIViewController, UISearchBarDelegate  {
-    
+    let refreshControl = UIRefreshControl()
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var search: UISearchBar!
     var mealViewModel:MealViewModel  = MealViewModel()
@@ -21,38 +21,11 @@ class MealViewController: UIViewController, UISearchBarDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         table.tableFooterView = UIView()
-        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+           refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        table.addSubview(refreshControl)
         mealViewModel.featchData()
-        mealViewModel.observable.subscribe({(connection) in
-            if connection.element!{
-                self.showAnimation()
-            }
-            else{
-                self.hideAnimation()
-            }
-        }).disposed(by: disposeBag)
-//        self.showAnimation()
-//        self.showAnimation()
-
-        
-        
-//        mealViewModel.connectivityDriver.drive(onNext:{(connection)in
-//            print(1)
-//            
-//            
-//            if connection{
-//                self.showAnimation()
-//                DispatchQueue.global().asyncAfter(deadline: .now() + 6) {
-//                    self.mealViewModel.featchData()
-//               
-//                }
-//            }
-//            else{
-//                
-//                self.hideAnimation()
-//            }
-//        }).disposed(by: disposeBag)
-        
+        self.checkConnection()
         
         search.delegate = self
         
@@ -83,23 +56,37 @@ extension MealViewController:UITableViewDelegate {
         return 130
     }
     func showAnimation() -> Void {
-        table.alpha = 0
+        table.alpha = 1
         search.alpha = 0
-        table.tableHeaderView?.alpha = 0
+
         animationView.alpha = 1
-
-
         animationView.animation = Animation.named("netwokFail")
         animationView.contentMode = .scaleAspectFit
         animationView.frame = view.bounds
         animationView.loopMode = .loop
-        self.view.addSubview(animationView)
+        self.table.backgroundView = animationView
         animationView.play()
-        viewWillAppear(true)
+
 
     }
     func hideAnimation() -> Void {
+        search.alpha = 1
         table.alpha = 1
         animationView.alpha = 0
+    }
+    @objc func refresh(_ sender: AnyObject) {
+        self.checkConnection()
+        refreshControl.endRefreshing()
+
+    }
+    func checkConnection() -> Void {
+        if !Connectivity.isConnectedToInternet{
+            self.showAnimation()
+            
+        }
+        else{
+            self.hideAnimation()
+            self.mealViewModel.featchData()
+        }
     }
 }

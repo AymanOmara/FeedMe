@@ -11,26 +11,9 @@ import RxCocoa
 import SDWebImage
 import Lottie
 class ViewController: UIViewController{
-    func showAnimation() -> Void {
-        collectionView.alpha = 0
-        animationView.alpha = 1
 
 
-        animationView.animation = Animation.named("netwokFail")
-        animationView.contentMode = .scaleAspectFit
-        animationView.frame = view.bounds
-        animationView.loopMode = .loop
-        view.addSubview(animationView)
-        animationView.play()
-        viewWillAppear(true)
-
-    }
-    func hideAnimation() -> Void {
-        collectionView.alpha = 1
-        animationView.alpha = 0
-    }
-
-    
+    let refreshControl = UIRefreshControl()
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     private let categoryViewModel = CategoryViewModel()
     let animationView = AnimationView()
@@ -40,9 +23,15 @@ class ViewController: UIViewController{
     @IBOutlet weak private var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Categories"
-        self.title = "Categories"
+//        title = "Categories"
+//        self.title = "Categories"
 
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+           refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        collectionView.addSubview(refreshControl)
+        
+        self.checkConnection()
+        
         categoryViewModel.featchData()
         categoryViewModel.connectivityDriver.drive(onNext:{(connection) in
             if connection{
@@ -105,7 +94,41 @@ extension ViewController:UICollectionViewDelegateFlowLayout{
 
 }
 extension ViewController{
+    func checkConnection() -> Void {
+        if !Connectivity.isConnectedToInternet{
+            self.showAnimation()
+            
+        }
+        else{
+            self.hideAnimation()
+            self.categoryViewModel.featchData()
+        }
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        self.checkConnection()
+//        refreshControl.endRefreshing()
 
+    }
+    func showAnimation() -> Void {
+        collectionView.alpha = 1
+        animationView.alpha = 1
+
+
+        animationView.animation = Animation.named("netwokFail")
+        animationView.contentMode = .scaleAspectFit
+        animationView.frame = view.bounds
+        animationView.loopMode = .loop
+        self.collectionView.backgroundView = animationView
+//        collectionView.addSubview(animationView)
+        animationView.play()
+//        viewWillAppear(true)
+
+    }
+    func hideAnimation() -> Void {
+        collectionView.alpha = 1
+        animationView.alpha = 0
+    }
 }
 // MARK:- GestureRecognizer
 

@@ -29,6 +29,9 @@ class MealViewModel {
             
             return
         }
+        connectivitySubject.onNext(true)
+        subject.onNext(true)
+        if Connectivity.isConnectedToInternet{
         network.getAllMeals(categoryName: categoryName) { meals, statusCode, error in
             guard let meals = meals else{
                 
@@ -36,6 +39,8 @@ class MealViewModel {
             }
             self.mealsSubject.onNext(meals.meals)
             
+        }
+            return
         }
     }
     init() {
