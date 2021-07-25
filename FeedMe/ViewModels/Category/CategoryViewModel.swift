@@ -7,27 +7,29 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 class CategoryViewModel{
+    let conntection = Connection.share
     let network = Networking.shared
     var categoryObservable:Observable<[CategoryElement]>
     private var categorySubject = PublishSubject<[CategoryElement]>()
-    private var showLoadingSubject = PublishSubject<Bool>()
-    var showLoadingObservable:Observable<Bool>
-    
-    
-    
+    var connectivityDriver:Driver<Bool>
+    var connectivitySubject = PublishSubject<Bool>()
     
     func featchData()->Void{
-        network.getAllCategories { category, statusCode, error in
-            self.showLoadingSubject.onNext(true)
-            self.categorySubject.onNext(category!.categories)
-            self.showLoadingSubject.onNext(false)
+        if !Connectivity.isConnectedToInternet{
+            self.connectivitySubject.onNext(true)
             
+            return
+        }
+        network.getAllCategories { category, statusCode, error in
+            self.categorySubject.onNext(category!.categories)
         }
     }
     
     init() {
         categoryObservable = categorySubject.asObservable()
-        showLoadingObservable = showLoadingSubject.asObserver()
+        connectivityDriver = connectivitySubject.asDriver(onErrorJustReturn: false)
+
     }
 }

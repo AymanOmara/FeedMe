@@ -8,16 +8,30 @@
 import UIKit
 import SOTabBar
 class TabHostViewController: SOTabBarController {
+    var category:ViewController!
+    var favorite:FavoriteViewController!
+    override func loadView() {
+        super.loadView()
 
+//        self.tabBarItem.badgeColor = UIColor.black
+
+        SOTabBarSetting.tabBarAnimationDurationTime = 0.2
+
+        category = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ViewController") as! ViewController)
+        category.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for:.selected)
+        favorite = (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FavoriteViewController") as! FavoriteViewController)
+        favorite.tabBarItem.badgeColor = UIColor.white
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let category = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ViewController") as! ViewController
-        let favorite = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FavoriteViewController") as! FavoriteViewController
+
+        
         category.tabBarItem = UITabBarItem(title: "Categories", image: UIImage(systemName: "book"), selectedImage: UIImage(systemName: "book"))
         favorite.tabBarItem = UITabBarItem(title: "favorites", image: UIImage(named: "not"), selectedImage: UIImage(named: "not"))
         
-        
+
+
         viewControllers = [category,favorite]
         
     }

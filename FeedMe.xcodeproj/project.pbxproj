@@ -24,6 +24,8 @@
 		ED242989269000F400534AF5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED242988269000F400534AF5 /* Constants.swift */; };
 		ED24298B26902DD400534AF5 /* APIContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED24298A26902DD400534AF5 /* APIContracts.swift */; };
 		ED26B79926AC353100D904DC /* empty.json in Resources */ = {isa = PBXBuildFile; fileRef = ED26B79826AC353100D904DC /* empty.json */; };
+		ED40DE8026AD9AD900BEAD1D /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40DE7F26AD9AD900BEAD1D /* Connection.swift */; };
+		ED40DE8226AD9E0000BEAD1D /* netwokFail.json in Resources */ = {isa = PBXBuildFile; fileRef = ED40DE8126AD9E0000BEAD1D /* netwokFail.json */; };
 		ED4AD12A26A177C700E29BB6 /* TabHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4AD12926A177C700E29BB6 /* TabHostViewController.swift */; };
 		ED831EC726A7053F00BD6695 /* LocalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED831EC626A7053F00BD6695 /* LocalManager.swift */; };
 		ED831EC926A708C500BD6695 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED831EC826A708C500BD6695 /* FavoriteCell.swift */; };
@@ -85,6 +87,8 @@
 		ED242988269000F400534AF5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED24298A26902DD400534AF5 /* APIContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIContracts.swift; sourceTree = "<group>"; };
 		ED26B79826AC353100D904DC /* empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = empty.json; path = ../../../../Downloads/empty.json; sourceTree = "<group>"; };
+		ED40DE7F26AD9AD900BEAD1D /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		ED40DE8126AD9E0000BEAD1D /* netwokFail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = netwokFail.json; sourceTree = "<group>"; };
 		ED4AD12926A177C700E29BB6 /* TabHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHostViewController.swift; sourceTree = "<group>"; };
 		ED831EC626A7053F00BD6695 /* LocalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocalManager.swift; path = FeedMe/Models/LocalManager.swift; sourceTree = SOURCE_ROOT; };
 		ED831EC826A708C500BD6695 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
@@ -282,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				ED242985269000A900534AF5 /* Network.swift */,
+				ED40DE7F26AD9AD900BEAD1D /* Connection.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 		ED845391268FEE7C00A7D289 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ED40DE8126AD9E0000BEAD1D /* netwokFail.json */,
 				ED26B79826AC353100D904DC /* empty.json */,
 				ED4AD12826A177A500E29BB6 /* TabBar HostViewController */,
 				ED845870269F023C00128F7C /* RandomScreen */,
@@ -496,6 +502,7 @@
 				ED26B79926AC353100D904DC /* empty.json in Resources */,
 				ED845367268FEDF200A7D289 /* Assets.xcassets in Resources */,
 				ED845362268FEDF100A7D289 /* Main.storyboard in Resources */,
+				ED40DE8226AD9E0000BEAD1D /* netwokFail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +649,7 @@
 				ED1FF765269B1A1C001A8B2A /* DetailsViewController.swift in Sources */,
 				ED84535B268FEDF100A7D289 /* AppDelegate.swift in Sources */,
 				ED0ADB74269127C5004B6149 /* CategoryViewModel.swift in Sources */,
+				ED40DE8026AD9AD900BEAD1D /* Connection.swift in Sources */,
 				ED18D5BD269256A4009C0724 /* CategoryCollectionViewCell.swift in Sources */,
 				ED4AD12A26A177C700E29BB6 /* TabHostViewController.swift in Sources */,
 				EDF733E626A9D28800676490 /* MealDetailsNavigationController.swift in Sources */,
@@ -826,6 +834,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R45D6M959W;
 				INFOPLIST_FILE = FeedMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -845,6 +854,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R45D6M959W;
 				INFOPLIST_FILE = FeedMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

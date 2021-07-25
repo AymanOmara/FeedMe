@@ -9,13 +9,31 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SDWebImage
+import Lottie
 class ViewController: UIViewController{
-    
+    func showAnimation() -> Void {
+        collectionView.alpha = 0
+        animationView.alpha = 1
+
+
+        animationView.animation = Animation.named("netwokFail")
+        animationView.contentMode = .scaleAspectFit
+        animationView.frame = view.bounds
+        animationView.loopMode = .loop
+        view.addSubview(animationView)
+        animationView.play()
+        viewWillAppear(true)
+
+    }
+    func hideAnimation() -> Void {
+        collectionView.alpha = 1
+        animationView.alpha = 0
+    }
 
     
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     private let categoryViewModel = CategoryViewModel()
-    
+    let animationView = AnimationView()
     private let disposeBag = DisposeBag()
     private var isLoadingAppears:Bool!
     private var activityIndicator:UIActivityIndicatorView!
@@ -26,8 +44,16 @@ class ViewController: UIViewController{
         self.title = "Categories"
 
         categoryViewModel.featchData()
+        categoryViewModel.connectivityDriver.drive(onNext:{(connection) in
+            if connection{
+                self.showAnimation()
+            }
+            else if !connection{
+                self.hideAnimation()
+            }
+            
+        }).disposed(by: disposeBag)
 
-        
         categoryViewModel.categoryObservable.bind(to: collectionView.rx.items(cellIdentifier: "CategoryCollectionViewCell")){row,data,cell in
             
             let cell = cell as! CategoryCollectionViewCell
@@ -39,6 +65,7 @@ class ViewController: UIViewController{
             
 
         }.disposed(by: disposeBag)
+
 
 
         collectionView.rx.modelSelected(CategoryElement.self).subscribe(onNext: {(category) in
@@ -56,7 +83,6 @@ class ViewController: UIViewController{
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
 
     }
-
 }
 
 
@@ -74,6 +100,9 @@ extension ViewController:UICollectionViewDelegateFlowLayout{
 
         return cellSize
     }
+
+}
+extension ViewController{
 
 }
 // MARK:- GestureRecognizer

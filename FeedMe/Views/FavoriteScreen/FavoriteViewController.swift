@@ -13,12 +13,10 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
     let mealDetailsViewModel = MealDetailsViewModel()
     @IBOutlet weak var tabelView: UITableView!
     let animationView = AnimationView();
-//    @IBOutlet weak var noFavortie: UILabel!
     let localManager = LocalManager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tabelView.rowHeight = tabelView.automaticDimension
-//        tabelView.rowHeight.
+
         localManager.retrive { details,imageArray in
             self.detailsArray = details
             self.imageArray = imageArray
@@ -38,9 +36,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
         let detailsVC = self.storyboard?.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
         detailsVC.isfromLocal = true
         detailsVC.details.coreID = detailsArray![indexPath.row].idMeal
-        //        detailsVC.details.isFromLocal(mealDetails: detailsArray![indexPath.row])
-        //        detailsVC.details.details = detailsArray![indexPath.row]
-        //        detailsVC.details.fetchFromLocal()
+
         
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
@@ -84,17 +80,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 400
-//    }
-    /*
-     - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-         return 70.0;
-     }
-     - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-         return  UITableViewAutomaticDimension;
-     }
-     */
+
     
     override func viewWillAppear(_ animated: Bool) {
         localManager.retrive { details,imageArray in
