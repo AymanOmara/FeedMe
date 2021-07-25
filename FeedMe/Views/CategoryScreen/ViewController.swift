@@ -23,9 +23,9 @@ class ViewController: UIViewController{
     @IBOutlet weak private var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        title = "Categories"
-//        self.title = "Categories"
-
+        collectionView.alpha = 1
+        self.navigationController?.isNavigationBarHidden = false
+        
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
            refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         collectionView.addSubview(refreshControl)
@@ -107,7 +107,7 @@ extension ViewController{
     
     @objc func refresh(_ sender: AnyObject) {
         self.checkConnection()
-//        refreshControl.endRefreshing()
+        refreshControl.endRefreshing()
 
     }
     func showAnimation() -> Void {
@@ -122,7 +122,7 @@ extension ViewController{
         self.collectionView.backgroundView = animationView
 //        collectionView.addSubview(animationView)
         animationView.play()
-//        viewWillAppear(true)
+
 
     }
     func hideAnimation() -> Void {

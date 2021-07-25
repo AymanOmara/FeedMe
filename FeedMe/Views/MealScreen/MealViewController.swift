@@ -10,13 +10,13 @@ import RxCocoa
 import RxSwift
 import SDWebImage
 import Lottie
-class MealViewController: UIViewController, UISearchBarDelegate  {
+class MealViewController: UIViewController  {
     let refreshControl = UIRefreshControl()
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var search: UISearchBar!
     var mealViewModel:MealViewModel  = MealViewModel()
     let animationView = AnimationView()
-
+    
     let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,12 @@ class MealViewController: UIViewController, UISearchBarDelegate  {
         mealViewModel.featchData()
         self.checkConnection()
         
-        search.delegate = self
+//        search.delegate = self
+        search.rx.text
+            .orEmpty.distinctUntilChanged().bind(to: mealViewModel.searchValue).disposed(by: disposeBag)
+        
+        
+        
         
         table
             .rx.setDelegate(self)

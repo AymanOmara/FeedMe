@@ -9,8 +9,14 @@ import Foundation
 import RxSwift
 import RxCocoa
 class MealViewModel {
+    let dispose = DisposeBag()
     let network = Networking.shared
     var mealsObservable:Observable<[meal]>?
+    var searchValue : BehaviorRelay<String> = BehaviorRelay(value: "")
+    private var searchedMeal:[meal]!
+    private var allMeals:[meal]!
+    private lazy var searchValueObservable:Observable<String> = searchValue.asObservable()
+    var isfiltered = false
     private var mealsSubject = PublishSubject<[meal]>()
 
     var connectivityDriver:Driver<Bool>
@@ -32,23 +38,40 @@ class MealViewModel {
         connectivitySubject.onNext(true)
         subject.onNext(true)
         if Connectivity.isConnectedToInternet{
-        network.getAllMeals(categoryName: categoryName) { meals, statusCode, error in
+            network.getAllMeals(categoryName: categoryName) { [self] meals, statusCode, error in
             guard let meals = meals else{
                 
                 return
             }
-            self.mealsSubject.onNext(meals.meals)
+            allMeals = meals.meals
+            searchedMeal = allMeals
+            self.mealsSubject.onNext(allMeals)
             
         }
             return
         }
     }
     init() {
-        
+        searchedMeal = allMeals
+
         mealsObservable = mealsSubject.asObservable()
         connectivityDriver = connectivitySubject.asDriver(onErrorJustReturn: false)
         observable = subject.asObservable()
+        searchedMeal = allMeals
+        searchValueObservable.subscribe(onNext:{ [self](serchedData) in
+            print(serchedData)
+            self.searchedMeal = self.allMeals?.filter({ (meal) in
+                 meal.strMeal.lowercased().contains(serchedData.lowercased())
+                    self.mealsSubject.onNext(searchedMeal)
+                    self.isfiltered = false
+
+                return true
+            }
+            )
+           
         
-    }
+    }).disposed(by: dispose)
+        
     
+}
 }
