@@ -57,9 +57,11 @@ class ViewController: UIViewController{
         categoryViewModel.categoryObservable.bind(to: collectionView.rx.items(cellIdentifier: "CategoryCollectionViewCell")){row,data,cell in
             
             let cell = cell as! CategoryCollectionViewCell
-
-            cell.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            cell.layer.borderWidth = 1
+            self.collectionView.layer.cornerRadius = 10
+            self.collectionView.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            cell.cellImage.layer.borderColor = #colorLiteral(red: 0.3703787327, green: 0.2112608552, blue: 0.4184725881, alpha: 1)
+            cell.cellImage.layer.borderWidth = 2
+            cell.cellImage.layer.cornerRadius = 5
             cell.cellImage.sd_setImage(with: URL(string: data.strCategoryThumb), placeholderImage: UIImage(named: "placeholder.png"))
             cell.callName.text = data.strCategory
             
@@ -94,7 +96,7 @@ extension ViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         
-        let width = (collectionView.frame.size.width - 10) / 2
+        let width = (collectionView.frame.size.width - 27) / 2
         
         let cellSize = CGSize(width: width, height: width)
 

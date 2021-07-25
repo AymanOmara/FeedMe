@@ -15,6 +15,9 @@ class RandomViewModel{
     var dataSubject = PublishSubject<mealDetails>()
     let networking = Networking.shared
     func featchData() -> Void {
+        if !Connectivity.isConnectedToInternet{
+            return
+        }
         networking.getRandomMeal { data, statusCode, error in
 
             self.dataSubject.onNext(data!.meals[0])

@@ -16,7 +16,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
     let localManager = LocalManager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.isNavigationBarHidden = true
         localManager.retrive { details,imageArray in
             self.detailsArray = details
             self.imageArray = imageArray

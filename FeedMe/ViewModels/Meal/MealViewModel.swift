@@ -7,33 +7,43 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 class MealViewModel {
     let network = Networking.shared
     var mealsObservable:Observable<[meal]>?
-    var errorObservable:Observable<(String,Int,Bool)>?
-    var showLoadingObservable:Observable<Bool>
-    var showLoadingSubject = PublishSubject<Bool>()
     private var mealsSubject = PublishSubject<[meal]>()
-    private var errorSubject = PublishSubject<(String,Int,Bool)>()
+
+    var connectivityDriver:Driver<Bool>
+    var connectivitySubject = PublishSubject<Bool>()
+    
+    var subject = PublishSubject<Bool>()
+    var observable:Observable<Bool>
     
     var categoryName:String = ""
     
     func featchData() -> Void{
         
+        if !Connectivity.isConnectedToInternet{
+            self.connectivitySubject.onNext(true)
+            self.subject.onNext(true)
+            
+            return
+        }
         network.getAllMeals(categoryName: categoryName) { meals, statusCode, error in
             guard let meals = meals else{
-                self.errorSubject.onNext((error!.localizedDescription,statusCode!,true))
+                
                 return
             }
             self.mealsSubject.onNext(meals.meals)
-            self.showLoadingSubject.onNext(false)
+            
         }
     }
     init() {
-        showLoadingSubject.onNext(true)
+        
         mealsObservable = mealsSubject.asObservable()
-        errorObservable = errorSubject.asObservable()
-        showLoadingObservable = showLoadingSubject.asObservable()
+        connectivityDriver = connectivitySubject.asDriver(onErrorJustReturn: false)
+        observable = subject.asObservable()
+        
     }
-
+    
 }

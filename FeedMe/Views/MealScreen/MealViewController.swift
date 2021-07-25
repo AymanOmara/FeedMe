@@ -9,18 +9,50 @@ import UIKit
 import RxCocoa
 import RxSwift
 import SDWebImage
+import Lottie
 class MealViewController: UIViewController, UISearchBarDelegate  {
     
-    @IBOutlet weak private var table: UITableView!
+    @IBOutlet weak var table: UITableView!
     @IBOutlet weak var search: UISearchBar!
     var mealViewModel:MealViewModel  = MealViewModel()
-    var activityIndicator:UIActivityIndicatorView!
+    let animationView = AnimationView()
+
     let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
         table.tableFooterView = UIView()
-        activityIndicator = UIActivityIndicatorView(style: .large)
+        
         mealViewModel.featchData()
+        mealViewModel.observable.subscribe({(connection) in
+            if connection.element!{
+                self.showAnimation()
+            }
+            else{
+                self.hideAnimation()
+            }
+        }).disposed(by: disposeBag)
+//        self.showAnimation()
+//        self.showAnimation()
+
+        
+        
+//        mealViewModel.connectivityDriver.drive(onNext:{(connection)in
+//            print(1)
+//            
+//            
+//            if connection{
+//                self.showAnimation()
+//                DispatchQueue.global().asyncAfter(deadline: .now() + 6) {
+//                    self.mealViewModel.featchData()
+//               
+//                }
+//            }
+//            else{
+//                
+//                self.hideAnimation()
+//            }
+//        }).disposed(by: disposeBag)
+        
         
         search.delegate = self
         
@@ -50,6 +82,24 @@ extension MealViewController:UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }
-    
-    
+    func showAnimation() -> Void {
+        table.alpha = 0
+        search.alpha = 0
+        table.tableHeaderView?.alpha = 0
+        animationView.alpha = 1
+
+
+        animationView.animation = Animation.named("netwokFail")
+        animationView.contentMode = .scaleAspectFit
+        animationView.frame = view.bounds
+        animationView.loopMode = .loop
+        self.view.addSubview(animationView)
+        animationView.play()
+        viewWillAppear(true)
+
+    }
+    func hideAnimation() -> Void {
+        table.alpha = 1
+        animationView.alpha = 0
+    }
 }

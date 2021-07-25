@@ -61,6 +61,9 @@ class MealDetailsViewModel{
     }
     
     func featchCoreDetails(){
+        if !Connectivity.isConnectedToInternet{
+            return
+        }
         localManager.coreDetails(id: coreID) { mealDetails, image in
             
             let ingredientArray = mealDetails.strIngredient1!.components(separatedBy: ", ")
