@@ -22,12 +22,12 @@ class MealViewController: UIViewController  {
         super.viewDidLoad()
         table.tableFooterView = UIView()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-           refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         table.addSubview(refreshControl)
         mealViewModel.featchData()
         self.checkConnection()
         
-//        search.delegate = self
+        
         search.rx.text
             .orEmpty.distinctUntilChanged().bind(to: mealViewModel.searchValue).disposed(by: disposeBag)
         
@@ -50,9 +50,12 @@ class MealViewController: UIViewController  {
             let mealDetails = self.storyboard?.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
             mealDetails.details.mealID = meal.idMeal
             self.navigationController?.pushViewController(mealDetails, animated: true)
-
+            
         }).disposed(by: disposeBag)
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
     }
     
 }
@@ -63,7 +66,7 @@ extension MealViewController:UITableViewDelegate {
     func showAnimation() -> Void {
         table.alpha = 1
         search.alpha = 0
-
+        
         animationView.alpha = 1
         animationView.animation = Animation.named("netwokFail")
         animationView.contentMode = .scaleAspectFit
@@ -71,8 +74,8 @@ extension MealViewController:UITableViewDelegate {
         animationView.loopMode = .loop
         self.table.backgroundView = animationView
         animationView.play()
-
-
+        
+        
     }
     func hideAnimation() -> Void {
         search.alpha = 1
@@ -82,7 +85,7 @@ extension MealViewController:UITableViewDelegate {
     @objc func refresh(_ sender: AnyObject) {
         self.checkConnection()
         refreshControl.endRefreshing()
-
+        
     }
     func checkConnection() -> Void {
         if !Connectivity.isConnectedToInternet{
@@ -94,4 +97,5 @@ extension MealViewController:UITableViewDelegate {
             self.mealViewModel.featchData()
         }
     }
+    
 }

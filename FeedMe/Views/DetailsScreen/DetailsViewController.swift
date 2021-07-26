@@ -19,7 +19,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var youtube: UIButton!
     
-    @IBOutlet weak var favoriteOutlet: UIBarButtonItem!
+    @IBOutlet weak var favoriteOutlet: UIButton!
     
     @IBOutlet weak var instractions: UILabel!
     @IBOutlet weak var tags: UILabel!
@@ -31,6 +31,7 @@ class DetailsViewController: UIViewController {
     var errorMessage:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: instractions.bottomAnchor).isActive = true
         youtube.setImage(UIImage(named: "YouTube-icon"), for: UIControl.State.normal )
         
@@ -38,9 +39,15 @@ class DetailsViewController: UIViewController {
         collectionView.layer.borderWidth = 1
         details.dataObservable.subscribe(onNext: {(data,image)
             in
+            self.image.layer.cornerRadius = 12
             self.title  = data.strMeal
             self.instractions.text = data.strInstructions
             self.tags.text = data.strTags
+            if data.strTags == ""{
+                self.tags.text = "----"
+            }else{
+                self.tags.text = data.strTags
+            }
             self.area.text = data.strArea
             self.categoryName.text = data.strCategory
             self.url = data.strYoutube ?? ""
@@ -80,6 +87,10 @@ class DetailsViewController: UIViewController {
             }
         }}
     
+    @IBAction func backbtn(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func addToFavorite(_ sender: Any) {
         if details.checkIfSaved(){
             let _: SCLAlertViewResponder = SCLAlertView().showError("Error", subTitle:"This meal is saved before")
@@ -90,7 +101,8 @@ class DetailsViewController: UIViewController {
         })
         if errorMessage == ""{
             self.showDialogue()
-            favoriteOutlet.image = UIImage(systemName: "heart.fill")
+            favoriteOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+//            favoriteOutlet.image =
 
 
         }
@@ -106,7 +118,7 @@ class DetailsViewController: UIViewController {
             details.featchCoreDetails()
         }
         if details.checkIfSaved(){
-            favoriteOutlet.image = UIImage(systemName: "heart.fill")
+            favoriteOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }
     }
     func showDialogue() -> Void {

@@ -29,7 +29,7 @@ class TabHostViewController: SOTabBarController {
         
         category.tabBarItem = UITabBarItem(title: "Categories", image: UIImage(systemName: "book"), selectedImage: UIImage(systemName: "book"))
         favorite.tabBarItem = UITabBarItem(title: "favorites", image: UIImage(named: "not"), selectedImage: UIImage(named: "not"))
-//        self.navigationController?.title = "Categories"
+
         
 
 
