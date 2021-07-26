@@ -14,7 +14,6 @@ Then another screen will be displayed that holds all meal details , like instruc
 - SOTabBar
 - lottie-Animation
 - SCLAlertView
-- Gesture Recognizer 
 
 # Code Specifications 
 - Architectural design pattern MVVM
