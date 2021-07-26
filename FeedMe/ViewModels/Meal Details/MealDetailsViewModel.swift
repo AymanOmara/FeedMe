@@ -67,12 +67,17 @@ class MealDetailsViewModel{
         localManager.coreDetails(id: coreID) { mealDetails, image in
             
             let ingredientArray = mealDetails.strIngredient1!.components(separatedBy: ", ")
+//            for i in ingredientArray{
+//                if i.contains("[") || i.contains("]"){
+//                    i.remove(at: i.count)
+//                }
+//            }
             let mesureArray =  mealDetails.strMeasure1!.components(separatedBy: ", ")
             let count = (ingredientArray.count) - 1
             
             for i in 0...count{
                 
-                self.noneEmptyIngredientArray.append(IngredientsMesures(ingredients: ingredientArray[i], mesures: mesureArray[i]))
+                self.noneEmptyIngredientArray.append(IngredientsMesures(ingredients: ingredientArray[i] as String, mesures: mesureArray[i] as String))
                 
             }
             

@@ -83,6 +83,8 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
 
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.title = "Favorites"
         localManager.retrive { details,imageArray in
             self.detailsArray = details
             self.imageArray = imageArray

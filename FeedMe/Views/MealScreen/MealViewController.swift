@@ -66,7 +66,6 @@ extension MealViewController:UITableViewDelegate {
     func showAnimation() -> Void {
         table.alpha = 1
         search.alpha = 0
-        
         animationView.alpha = 1
         animationView.animation = Animation.named("netwokFail")
         animationView.contentMode = .scaleAspectFit

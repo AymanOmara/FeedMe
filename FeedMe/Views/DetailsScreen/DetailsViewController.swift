@@ -43,7 +43,7 @@ class DetailsViewController: UIViewController {
             self.title  = data.strMeal
             self.instractions.text = data.strInstructions
             self.tags.text = data.strTags
-            if data.strTags == ""{
+            if data.strTags == nil{
                 self.tags.text = "----"
             }else{
                 self.tags.text = data.strTags
