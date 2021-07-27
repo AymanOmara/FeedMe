@@ -16,6 +16,8 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
     let localManager = LocalManager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.view.backgroundColor = #colorLiteral(red: 0.8665809631, green: 0.8667267561, blue: 0.8665617108, alpha: 1)
+//        tabelView.backgroundColor = UIColor(red: 221, green: 221, blue: 221, alpha: 1)
         self.navigationController?.isNavigationBarHidden = true
         localManager.retrive { details,imageArray in
             self.detailsArray = details
@@ -53,8 +55,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteCell", for: indexPath) as! FavoriteCell
-        
-        
+        cell.awakeFromNib()
         
         cell.favoriteImage.image = imageArray![indexPath.row]
         cell.label.text = detailsArray![indexPath.row].strMeal

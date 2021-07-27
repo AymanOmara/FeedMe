@@ -47,7 +47,7 @@ class ViewController: UIViewController{
             
             let cell = cell as! CategoryCollectionViewCell
             self.collectionView.layer.cornerRadius = 18
-            self.collectionView.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+//            self.collectionView.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
             cell.cellImage.layer.borderColor = #colorLiteral(red: 0.3703787327, green: 0.2112608552, blue: 0.4184725881, alpha: 1)
             cell.cellImage.layer.borderWidth = 2
             cell.cellImage.layer.cornerRadius = 18

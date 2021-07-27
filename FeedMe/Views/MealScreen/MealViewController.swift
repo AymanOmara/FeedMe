@@ -37,10 +37,12 @@ class MealViewController: UIViewController  {
         table
             .rx.setDelegate(self)
             .disposed(by: disposeBag)
+       
         
         mealViewModel.mealsObservable!.bind(to: table.rx.items(cellIdentifier: "MealsTableViewCell")){row,data,cell in
-            
+//            self.table.backgroundColor = .gray
             let cell = cell as! MealsTableViewCell
+
             cell.mealImage.sd_setImage(with: URL(string: data.strMealThumb), placeholderImage: UIImage(named: "placeholder"))
             cell.mealLabel.text = data.strMeal
         }.disposed(by: disposeBag)
@@ -61,8 +63,9 @@ class MealViewController: UIViewController  {
 }
 extension MealViewController:UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
+        return 140
     }
+    
     func showAnimation() -> Void {
         table.alpha = 1
         search.alpha = 0
