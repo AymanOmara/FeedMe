@@ -16,8 +16,6 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
     let localManager = LocalManager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.view.backgroundColor = #colorLiteral(red: 0.8665809631, green: 0.8667267561, blue: 0.8665617108, alpha: 1)
-//        tabelView.backgroundColor = UIColor(red: 221, green: 221, blue: 221, alpha: 1)
         self.navigationController?.isNavigationBarHidden = true
         localManager.retrive { details,imageArray in
             self.detailsArray = details
@@ -27,7 +25,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
         tabelView.dataSource = self
         tabelView.tableFooterView = UIView()
         
-//        self.navigationController?.isToolbarHidden = true
+
         tabelView.reloadData()
         
         
@@ -59,6 +57,9 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
         
         cell.favoriteImage.image = imageArray![indexPath.row]
         cell.label.text = detailsArray![indexPath.row].strMeal
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedMe(tapGestureRecognizer:)))
+        cell.favoriteImage.addGestureRecognizer(tap)
+        cell.favoriteImage.isUserInteractionEnabled = true
         
         return cell
         
@@ -77,6 +78,13 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
             tabelView.reloadData()
             viewWillAppear(true)
         }
+    }
+    @objc func tappedMe(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        let imageController = self.storyboard?.instantiateViewController(identifier: "MyViewController") as! MyViewController
+        imageController.image = tappedImage.image!
+        self.present(imageController, animated: true, completion: nil)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
