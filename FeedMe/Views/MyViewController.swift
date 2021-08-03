@@ -1,5 +1,5 @@
 //
-//  ImageViewController.swift
+//  MyViewController.swift
 //  FeedMe
 //
 //  Created by Ayman Omara on 03/08/2021.
@@ -7,15 +7,23 @@
 
 import UIKit
 
-class ImageViewController: UIViewController {
-
+class MyViewController: UIViewController {
+var image = UIImage()
+    @IBOutlet weak var imageExpand: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        imageExpand.image = image
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedMe(tapGestureRecognizer:)))
+        myView.addGestureRecognizer(tap)
+        
     }
-    
+    @objc func tappedMe(tapGestureRecognizer: UITapGestureRecognizer)
+    {
 
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBOutlet var myView: UIView!
+    
     /*
     // MARK: - Navigation
 

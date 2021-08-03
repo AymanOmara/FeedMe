@@ -40,9 +40,12 @@ class MealViewController: UIViewController  {
        
         
         mealViewModel.mealsObservable!.bind(to: table.rx.items(cellIdentifier: "MealsTableViewCell")){row,data,cell in
-//            self.table.backgroundColor = .gray
-            let cell = cell as! MealsTableViewCell
 
+            let cell = cell as! MealsTableViewCell
+            let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedMe(tapGestureRecognizer:)))
+            cell.mealImage.addGestureRecognizer(tap)
+            cell.mealImage.isUserInteractionEnabled = true
+           
             cell.mealImage.sd_setImage(with: URL(string: data.strMealThumb), placeholderImage: UIImage(named: "placeholder"))
             cell.mealLabel.text = data.strMeal
         }.disposed(by: disposeBag)
@@ -58,6 +61,13 @@ class MealViewController: UIViewController  {
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
+    }
+    @objc func tappedMe(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        let imageController = self.storyboard?.instantiateViewController(identifier: "MyViewController") as! MyViewController
+        imageController.image = tappedImage.image!
+        self.present(imageController, animated: true, completion: nil)
     }
     
 }

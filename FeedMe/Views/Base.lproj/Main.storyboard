@@ -590,33 +590,30 @@
             </objects>
             <point key="canvasLocation" x="473.91304347826093" y="45.535714285714285"/>
         </scene>
-        <!--Image View Controller-->
-        <scene sceneID="C2l-iV-nJL">
+        <!--My View Controller-->
+        <scene sceneID="cuf-xc-F2A">
             <objects>
-                <viewController id="LMs-8c-Fxu" customClass="ImageViewController" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="X2K-zR-pKy">
+                <viewController storyboardIdentifier="MyViewController" id="Pcn-Yw-D6I" customClass="MyViewController" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FyI-IM-0H1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yq6-y4-ERR">
-                                <rect key="frame" x="60" y="309" width="294" height="278"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="294" id="e5h-5U-chA"/>
-                                    <constraint firstAttribute="height" constant="278" id="x6z-lu-I0P"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V1t-PC-PHl">
+                                <rect key="frame" x="66" y="348" width="282" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="gI5-8F-3Ai"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="yq6-y4-ERR" firstAttribute="centerY" secondItem="X2K-zR-pKy" secondAttribute="centerY" id="7W4-tY-tcf"/>
-                            <constraint firstItem="yq6-y4-ERR" firstAttribute="centerX" secondItem="X2K-zR-pKy" secondAttribute="centerX" id="9Xa-X7-99j"/>
-                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rx3-sH-Gzo"/>
+                        <color key="backgroundColor" systemColor="placeholderTextColor"/>
                     </view>
+                    <connections>
+                        <outlet property="imageExpand" destination="V1t-PC-PHl" id="j93-m3-ljh"/>
+                        <outlet property="myView" destination="FyI-IM-0H1" id="at1-hh-UYI"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1dG-ge-WR3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fgm-6g-YxU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="473.91304347826093" y="827.00892857142856"/>
+            <point key="canvasLocation" x="927.536231884058" y="698.4375"/>
         </scene>
         <!--Categories-->
         <scene sceneID="GGj-nS-m9K">

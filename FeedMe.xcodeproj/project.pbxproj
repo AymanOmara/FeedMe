@@ -24,7 +24,6 @@
 		ED242989269000F400534AF5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED242988269000F400534AF5 /* Constants.swift */; };
 		ED24298B26902DD400534AF5 /* APIContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED24298A26902DD400534AF5 /* APIContracts.swift */; };
 		ED26B79926AC353100D904DC /* empty.json in Resources */ = {isa = PBXBuildFile; fileRef = ED26B79826AC353100D904DC /* empty.json */; };
-		ED3B7EBC26B9151B000E8644 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3B7EBB26B9151B000E8644 /* ImageViewController.swift */; };
 		ED40DE8026AD9AD900BEAD1D /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40DE7F26AD9AD900BEAD1D /* Connection.swift */; };
 		ED40DE8226AD9E0000BEAD1D /* netwokFail.json in Resources */ = {isa = PBXBuildFile; fileRef = ED40DE8126AD9E0000BEAD1D /* netwokFail.json */; };
 		ED4AD12A26A177C700E29BB6 /* TabHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4AD12926A177C700E29BB6 /* TabHostViewController.swift */; };
@@ -44,6 +43,7 @@
 		ED84587A269F1C9A00128F7C /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED845879269F1C9A00128F7C /* NavigationController.swift */; };
 		ED85F43F269DC82C00A738EF /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED85F43E269DC82C00A738EF /* FavoriteViewController.swift */; };
 		ED85F441269DCF1C00A738EF /* DetailsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED85F440269DCF1C00A738EF /* DetailsCollectionCell.swift */; };
+		EDD679CD26B9171600A7E115 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD679CC26B9171600A7E115 /* MyViewController.swift */; };
 		EDF733E626A9D28800676490 /* MealDetailsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF733E526A9D28800676490 /* MealDetailsNavigationController.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,7 +88,6 @@
 		ED242988269000F400534AF5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED24298A26902DD400534AF5 /* APIContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIContracts.swift; sourceTree = "<group>"; };
 		ED26B79826AC353100D904DC /* empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = empty.json; path = ../../../../Downloads/empty.json; sourceTree = "<group>"; };
-		ED3B7EBB26B9151B000E8644 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		ED40DE7F26AD9AD900BEAD1D /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		ED40DE8126AD9E0000BEAD1D /* netwokFail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = netwokFail.json; sourceTree = "<group>"; };
 		ED4AD12926A177C700E29BB6 /* TabHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHostViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +113,7 @@
 		ED845879269F1C9A00128F7C /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		ED85F43E269DC82C00A738EF /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		ED85F440269DCF1C00A738EF /* DetailsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionCell.swift; sourceTree = "<group>"; };
+		EDD679CC26B9171600A7E115 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		EDF733E526A9D28800676490 /* MealDetailsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -319,7 +319,7 @@
 				ED845368268FEDF200A7D289 /* LaunchScreen.storyboard */,
 				ED845366268FEDF200A7D289 /* Assets.xcassets */,
 				ED845879269F1C9A00128F7C /* NavigationController.swift */,
-				ED3B7EBB26B9151B000E8644 /* ImageViewController.swift */,
+				EDD679CC26B9171600A7E115 /* MyViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -638,12 +638,12 @@
 				ED831EC926A708C500BD6695 /* FavoriteCell.swift in Sources */,
 				ED24298B26902DD400534AF5 /* APIContracts.swift in Sources */,
 				ED242989269000F400534AF5 /* Constants.swift in Sources */,
+				EDD679CD26B9171600A7E115 /* MyViewController.swift in Sources */,
 				ED18D5C726927DB5009C0724 /* MealViewController.swift in Sources */,
 				ED85F441269DCF1C00A738EF /* DetailsCollectionCell.swift in Sources */,
 				ED845872269F028200128F7C /* RandomViewController.swift in Sources */,
 				ED85F43F269DC82C00A738EF /* FavoriteViewController.swift in Sources */,
 				ED84535F268FEDF100A7D289 /* ViewController.swift in Sources */,
-				ED3B7EBC26B9151B000E8644 /* ImageViewController.swift in Sources */,
 				ED2429842690006F00534AF5 /* Category.swift in Sources */,
 				ED1FF762269B193E001A8B2A /* MealDetailsViewModel.swift in Sources */,
 				ED831EC726A7053F00BD6695 /* LocalManager.swift in Sources */,
