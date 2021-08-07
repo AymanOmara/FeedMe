@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import SDWebImage
 //import SCLAlertView
 class MealDetailsViewModel{
     
@@ -25,6 +26,7 @@ class MealDetailsViewModel{
     var newDetails:mealDetails!
     var mealID:String = ""
     var coreID:String = ""
+    var image:UIImageView!
     func featchData() -> Void {
         networking.getMealDetails(url:Constants.baseURL+Constants.mealDetails,mealID: mealID) { data, statusCode, error in
             guard let data = data else{
@@ -38,7 +40,9 @@ class MealDetailsViewModel{
                     self.noneEmptyIngredientArray.append(i)
                 }
             }
-            self.dataSubject.onNext((data.meals[0],nil))
+            self.image = UIImageView()
+            self.image.sd_setImage(with: URL(string: data.meals[0].strMealThumb), completed: nil)
+            self.dataSubject.onNext((data.meals[0],self.image.image))
             
             self.ingredientSubject.onNext(self.noneEmptyIngredientArray)
             
@@ -47,7 +51,7 @@ class MealDetailsViewModel{
     }
     func SaveToLocal(complition:@escaping(String)->Void) -> Void {
         if coreID == ""{
-            localManager.add(mealDetails: details, ingredientMesure: noneEmptyIngredientArray, complition:{(error) in
+            localManager.add(mealDetails: details, image: self.image.image!, ingredientMesure: noneEmptyIngredientArray, complition:{(error) in
                 if error == ""{
                     complition("")
                 }

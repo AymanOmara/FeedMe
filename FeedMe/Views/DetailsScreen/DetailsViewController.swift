@@ -57,12 +57,7 @@ class DetailsViewController: UIViewController {
             }
             self.youtube.addTarget(self, action:#selector(self.openYoutube), for: .touchUpInside)
             self.mealName.text = data.strMeal
-            if let image = image{
-                self.image.image = image
-            }
-            else{
-                self.image.sd_setImage(with: URL(string: data.strMealThumb), placeholderImage: UIImage(named: "placeholder"))
-            }
+            self.image.image = image
         }).disposed(by: dispose)
         
         details.ingredientObvservable.bind(to: collectionView.rx.items(cellIdentifier: "ingreddients")){row,data,cell in
@@ -96,20 +91,18 @@ class DetailsViewController: UIViewController {
             let _: SCLAlertViewResponder = SCLAlertView().showError("Error", subTitle:"This meal is saved before")
         }
         else {
-        details.SaveToLocal(complition: {(messege) in
-            self.errorMessage = messege
-        })
-        if errorMessage == ""{
-            self.showDialogue()
-            favoriteOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-//            favoriteOutlet.image =
-
-
-        }
-
+            details.SaveToLocal(complition: {(messege) in
+                self.errorMessage = messege
+            })
+            if errorMessage == ""{
+                self.showDialogue()
+                favoriteOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                
+            }
+            
         }
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         if !isfromLocal{
             details.featchData()
@@ -122,6 +115,6 @@ class DetailsViewController: UIViewController {
         }
     }
     func showDialogue() -> Void {
-        let _: SCLAlertViewResponder = SCLAlertView().showSuccess("Done", subTitle: "This Meal Has Benn Add to favorites")
+        let _: SCLAlertViewResponder = SCLAlertView().showSuccess("Done", subTitle: "This Meal Has Been Added to favorites")
     }
 }

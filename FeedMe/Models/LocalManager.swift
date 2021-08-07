@@ -8,22 +8,19 @@
 import Foundation
 import CoreData
 import UIKit
-import SDWebImage
 class LocalManager {
     static let shared = LocalManager()
     var appDelegate:AppDelegate
     var managedContext:NSManagedObjectContext
     var entity:NSEntityDescription
     var featchRequst:NSFetchRequest<NSManagedObject>
-    func add(mealDetails:mealDetails,ingredientMesure:[IngredientsMesures],complition:@escaping(String)->Void) -> Bool {
+    func add(mealDetails:mealDetails,image:UIImage,ingredientMesure:[IngredientsMesures],complition:@escaping(String)->Void) -> Bool {
         
         
         let meal = NSManagedObject(entity: entity, insertInto: managedContext)
+
         
-        let image:UIImageView = UIImageView()
-        image.sd_setImage(with: URL(string:mealDetails.strMealThumb))
-        
-        let data = image.image!.pngData()
+        let data = image.pngData()
         var ingredient:[String] = [String]()
         var mesure:[String] = [String]()
         for i in ingredientMesure{

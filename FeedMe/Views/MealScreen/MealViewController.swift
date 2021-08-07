@@ -16,7 +16,7 @@ class MealViewController: UIViewController  {
     @IBOutlet weak var search: UISearchBar!
     var mealViewModel:MealViewModel  = MealViewModel()
     let animationView = AnimationView()
-    
+    let activtyIndicator = UIActivityIndicatorView(style: .large)
     let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +42,14 @@ class MealViewController: UIViewController  {
         mealViewModel.mealsObservable!.bind(to: table.rx.items(cellIdentifier: "MealsTableViewCell")){row,data,cell in
 
             let cell = cell as! MealsTableViewCell
+            cell.imageView?.center = self.activtyIndicator.center
+            cell.imageView?.addSubview(self.activtyIndicator)
+//            cell.mealImage.sd_imageIndicator = (self.activtyIndicator as! SDWebImageIndicator)
             let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedMe(tapGestureRecognizer:)))
             cell.mealImage.addGestureRecognizer(tap)
             cell.mealImage.isUserInteractionEnabled = true
            
-            cell.mealImage.sd_setImage(with: URL(string: data.strMealThumb), placeholderImage: UIImage(named: "placeholder"))
+            cell.mealImage.sd_setImage(with: URL(string: data.strMealThumb))
             cell.mealLabel.text = data.strMeal
         }.disposed(by: disposeBag)
         
@@ -67,6 +70,7 @@ class MealViewController: UIViewController  {
         let tappedImage = tapGestureRecognizer.view as! UIImageView
         let imageController = self.storyboard?.instantiateViewController(identifier: "MyViewController") as! MyViewController
         imageController.image = tappedImage.image!
+        imageController.modalPresentationStyle = .fullScreen
         self.present(imageController, animated: true, completion: nil)
     }
     

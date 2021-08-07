@@ -23,10 +23,12 @@
 		ED242986269000A900534AF5 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED242985269000A900534AF5 /* Network.swift */; };
 		ED242989269000F400534AF5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED242988269000F400534AF5 /* Constants.swift */; };
 		ED24298B26902DD400534AF5 /* APIContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED24298A26902DD400534AF5 /* APIContracts.swift */; };
-		ED26B79926AC353100D904DC /* empty.json in Resources */ = {isa = PBXBuildFile; fileRef = ED26B79826AC353100D904DC /* empty.json */; };
 		ED40DE8026AD9AD900BEAD1D /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40DE7F26AD9AD900BEAD1D /* Connection.swift */; };
 		ED40DE8226AD9E0000BEAD1D /* netwokFail.json in Resources */ = {isa = PBXBuildFile; fileRef = ED40DE8126AD9E0000BEAD1D /* netwokFail.json */; };
 		ED4AD12A26A177C700E29BB6 /* TabHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4AD12926A177C700E29BB6 /* TabHostViewController.swift */; };
+		ED4D1F4326BE66EE00406917 /* empty.json in Resources */ = {isa = PBXBuildFile; fileRef = ED4D1F4226BE66EE00406917 /* empty.json */; };
+		ED4D1F4626BE673400406917 /* AddNewMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1F4526BE673400406917 /* AddNewMealViewController.swift */; };
+		ED4D1F4926BE679700406917 /* AddNewMealVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4D1F4826BE679700406917 /* AddNewMealVM.swift */; };
 		ED831EC726A7053F00BD6695 /* LocalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED831EC626A7053F00BD6695 /* LocalManager.swift */; };
 		ED831EC926A708C500BD6695 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED831EC826A708C500BD6695 /* FavoriteCell.swift */; };
 		ED84535B268FEDF100A7D289 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84535A268FEDF100A7D289 /* AppDelegate.swift */; };
@@ -87,10 +89,12 @@
 		ED242985269000A900534AF5 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		ED242988269000F400534AF5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED24298A26902DD400534AF5 /* APIContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIContracts.swift; sourceTree = "<group>"; };
-		ED26B79826AC353100D904DC /* empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = empty.json; path = ../../../../Downloads/empty.json; sourceTree = "<group>"; };
 		ED40DE7F26AD9AD900BEAD1D /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		ED40DE8126AD9E0000BEAD1D /* netwokFail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = netwokFail.json; sourceTree = "<group>"; };
 		ED4AD12926A177C700E29BB6 /* TabHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHostViewController.swift; sourceTree = "<group>"; };
+		ED4D1F4226BE66EE00406917 /* empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = empty.json; sourceTree = "<group>"; };
+		ED4D1F4526BE673400406917 /* AddNewMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMealViewController.swift; sourceTree = "<group>"; };
+		ED4D1F4826BE679700406917 /* AddNewMealVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMealVM.swift; sourceTree = "<group>"; };
 		ED831EC626A7053F00BD6695 /* LocalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocalManager.swift; path = FeedMe/Models/LocalManager.swift; sourceTree = SOURCE_ROOT; };
 		ED831EC826A708C500BD6695 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		ED845357268FEDF100A7D289 /* FeedMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +215,31 @@
 			path = "TabBar HostViewController";
 			sourceTree = "<group>";
 		};
+		ED4D1F3E26BE663500406917 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				ED4D1F4226BE66EE00406917 /* empty.json */,
+				ED40DE8126AD9E0000BEAD1D /* netwokFail.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		ED4D1F4426BE671100406917 /* AddNewMeal */ = {
+			isa = PBXGroup;
+			children = (
+				ED4D1F4526BE673400406917 /* AddNewMealViewController.swift */,
+			);
+			path = AddNewMeal;
+			sourceTree = "<group>";
+		};
+		ED4D1F4726BE677500406917 /* add Meal */ = {
+			isa = PBXGroup;
+			children = (
+				ED4D1F4826BE679700406917 /* AddNewMealVM.swift */,
+			);
+			path = "add Meal";
+			sourceTree = "<group>";
+		};
 		ED84534E268FEDF100A7D289 = {
 			isa = PBXGroup;
 			children = (
@@ -305,8 +334,8 @@
 		ED845391268FEE7C00A7D289 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ED40DE8126AD9E0000BEAD1D /* netwokFail.json */,
-				ED26B79826AC353100D904DC /* empty.json */,
+				ED4D1F4426BE671100406917 /* AddNewMeal */,
+				ED4D1F3E26BE663500406917 /* Animations */,
 				ED4AD12826A177A500E29BB6 /* TabBar HostViewController */,
 				ED845870269F023C00128F7C /* RandomScreen */,
 				ED85F43D269DC7DF00A738EF /* FavoriteScreen */,
@@ -327,6 +356,7 @@
 		ED845392268FEE8400A7D289 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				ED4D1F4726BE677500406917 /* add Meal */,
 				ED845876269F031600128F7C /* Random */,
 				ED845873269F02DF00128F7C /* Category */,
 				ED845874269F02F100128F7C /* Meal */,
@@ -502,7 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED84536A268FEDF200A7D289 /* LaunchScreen.storyboard in Resources */,
-				ED26B79926AC353100D904DC /* empty.json in Resources */,
+				ED4D1F4326BE66EE00406917 /* empty.json in Resources */,
 				ED845367268FEDF200A7D289 /* Assets.xcassets in Resources */,
 				ED845362268FEDF100A7D289 /* Main.storyboard in Resources */,
 				ED40DE8226AD9E0000BEAD1D /* netwokFail.json in Resources */,
@@ -633,9 +663,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED4D1F4926BE679700406917 /* AddNewMealVM.swift in Sources */,
 				ED18D5BF2692793B009C0724 /* Meals.swift in Sources */,
 				ED845878269F032D00128F7C /* RandomViewModel.swift in Sources */,
 				ED831EC926A708C500BD6695 /* FavoriteCell.swift in Sources */,
+				ED4D1F4626BE673400406917 /* AddNewMealViewController.swift in Sources */,
 				ED24298B26902DD400534AF5 /* APIContracts.swift in Sources */,
 				ED242989269000F400534AF5 /* Constants.swift in Sources */,
 				EDD679CD26B9171600A7E115 /* MyViewController.swift in Sources */,

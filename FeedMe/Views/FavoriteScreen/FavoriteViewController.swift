@@ -17,15 +17,10 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
-        localManager.retrive { details,imageArray in
-            self.detailsArray = details
-            self.imageArray = imageArray
-        }
+
         tabelView.delegate = self
         tabelView.dataSource = self
         tabelView.tableFooterView = UIView()
-        
-
         tabelView.reloadData()
         
         
@@ -53,7 +48,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteCell", for: indexPath) as! FavoriteCell
-        cell.awakeFromNib()
+
         
         cell.favoriteImage.image = imageArray![indexPath.row]
         cell.label.text = detailsArray![indexPath.row].strMeal
@@ -84,6 +79,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate,UITableViewD
         let tappedImage = tapGestureRecognizer.view as! UIImageView
         let imageController = self.storyboard?.instantiateViewController(identifier: "MyViewController") as! MyViewController
         imageController.image = tappedImage.image!
+        imageController.modalPresentationStyle = .fullScreen
         self.present(imageController, animated: true, completion: nil)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
