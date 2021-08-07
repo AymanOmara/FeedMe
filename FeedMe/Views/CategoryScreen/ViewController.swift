@@ -14,6 +14,7 @@ class ViewController: UIViewController{
 
 
     let refreshControl = UIRefreshControl()
+    var isDataPresented = false
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     private let categoryViewModel = CategoryViewModel()
     let animationView = AnimationView()
@@ -47,10 +48,10 @@ class ViewController: UIViewController{
             
             let cell = cell as! CategoryCollectionViewCell
             self.collectionView.layer.cornerRadius = 18
-//            self.collectionView.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
             cell.cellImage.layer.borderColor = #colorLiteral(red: 0.3703787327, green: 0.2112608552, blue: 0.4184725881, alpha: 1)
             cell.cellImage.layer.borderWidth = 2
             cell.cellImage.layer.cornerRadius = 18
+            self.isDataPresented = true
             cell.cellImage.sd_setImage(with: URL(string: data.strCategoryThumb), placeholderImage: UIImage(named: "placeholder.png"))
             cell.callName.text = data.strCategory
             
@@ -95,7 +96,7 @@ extension ViewController:UICollectionViewDelegateFlowLayout{
 }
 extension ViewController{
     func checkConnection() -> Void {
-        if !Connectivity.isConnectedToInternet{
+        if !Connectivity.isConnectedToInternet && !isDataPresented{
             self.showAnimation()
             
         }
@@ -111,6 +112,7 @@ extension ViewController{
 
     }
     func showAnimation() -> Void {
+       if !isDataPresented{
         collectionView.alpha = 1
         animationView.alpha = 1
 
@@ -120,9 +122,9 @@ extension ViewController{
         animationView.frame = view.bounds
         animationView.loopMode = .loop
         self.collectionView.backgroundView = animationView
-//        collectionView.addSubview(animationView)
-        animationView.play()
 
+        animationView.play()
+       }
 
     }
     func hideAnimation() -> Void {
@@ -130,5 +132,3 @@ extension ViewController{
         animationView.alpha = 0
     }
 }
-// MARK:- GestureRecognizer
-
